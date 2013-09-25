@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<integer name="stopwatch_list_num_of_columns">2</integer>
+
+    <integer name="tag_type">0</integer>
+    <integer name="tag_holder">1</integer>
+</resources>
