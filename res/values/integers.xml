@@ -3,5 +3,17 @@
 	<integer name="stopwatch_list_num_of_columns">2</integer>
 
     <integer name="tag_type">0</integer>
-    <integer name="tag_holder">1</integer>
+    <integer name="tag_holder">0</integer>
+
+    <integer name="type_toggle">0</integer>
+    <integer name="type_reset">0</integer>
+    <integer name="type_delete">0</integer>
+    <integer name="type_graph">0</integer>
+    <integer name="type_add">0</integer>
+    <integer name="tag_name">0</integer>
+    
+    <integer name="mode_grid">0</integer>
+    <integer name="mode_list">0</integer>
+    
+    <integer name="describe_contents_stopwatch">0</integer>
 </resources>

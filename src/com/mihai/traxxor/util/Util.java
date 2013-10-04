@@ -1,4 +1,4 @@
-package com.mihai.traxxor;
+package com.mihai.traxxor.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -19,12 +19,12 @@ public class StopwatchTest {
 		while (w.getTimeSinceStart() < 485) {
 			Thread.sleep(r.nextInt(5)+1);
 			if(w.isActive()) {
-				w.suspend();
+				w.stop();
 			} else {
-				w.resume();
+				w.start();
 			}
 		}
-		w.stop();
+		w.DEPstop();
 		
 		android.util.Log.v(TAG, "starttime " + w.getStartTime());
 		android.util.Log.v(TAG, "active " + w.getActivePercentage());
@@ -45,25 +45,25 @@ public class StopwatchTest {
 		w.start(); // starting
 		android.util.Log.v(TAG, "*");
 		Thread.sleep(100); 
-		w.suspend();
-		android.util.Log.v(TAG, "*");
-		Thread.sleep(100); 
-		w.resume();
-		android.util.Log.v(TAG, "*");
-		Thread.sleep(150);
 		w.stop();
 		android.util.Log.v(TAG, "*");
-		Thread.sleep(100);
-		w.resume();
+		Thread.sleep(100); 
+		w.start();
+		android.util.Log.v(TAG, "*");
+		Thread.sleep(150);
+		w.DEPstop();
 		android.util.Log.v(TAG, "*");
 		Thread.sleep(100);
 		w.start();
 		android.util.Log.v(TAG, "*");
 		Thread.sleep(100);
-		w.suspend();
+		w.start();
 		android.util.Log.v(TAG, "*");
 		Thread.sleep(100);
 		w.stop();
+		android.util.Log.v(TAG, "*");
+		Thread.sleep(100);
+		w.DEPstop();
 		android.util.Log.v(TAG, "*");
 		Thread.sleep(100);
 		
