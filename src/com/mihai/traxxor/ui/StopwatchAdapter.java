@@ -1,10 +1,11 @@
-package com.mihai.traxxor;
+package com.mihai.traxxor.ui;
 
 import java.util.Vector;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -19,18 +20,23 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mihai.traxxor.R;
+import com.mihai.traxxor.data.StatCalculator;
+import com.mihai.traxxor.data.Stopwatch;
+
 public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, OnClickListener, OnLongClickListener {
     private static final int REFRESH_TIME_MS = 500;
     private static final int MS_PER_SEC = 1000;
     private static final int MS_PER_MIN = MS_PER_SEC * 60;
     private static final int MS_PER_HOUR = MS_PER_MIN * 60;
 
-    private static Context mContext;
+    private static Activity mActivity;
     private static int mTimeOnColor;
     private static int mTimeOffColor;
     private static int mMode = R.integer.mode_grid;
 
     private Vector<Holder> mStopwatches = new Vector<Holder>();
+    private Stopwatch mMasterWatch;
     private View mClickedView = null;
     private Handler mHandler;
     private int mNextId = 0;
@@ -52,15 +58,18 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         }
     }
 
-    public StopwatchAdapter(Context ctx) {
-        mContext = ctx;
-        final Resources res = ctx.getResources();
+    public StopwatchAdapter(Activity act) {
+        mActivity = act;
+        final Resources res = act.getResources();
         mTimeOnColor = res.getColor(R.color.stopwatch_on);
         mTimeOffColor = res.getColor(R.color.stopwatch_off);
     }
 
+    public void setMasterStopwatch(Stopwatch master) {
+        mMasterWatch = master;
+    }
+
     public int getCount() {
-        android.util.Log.v("bulic", "size " + mStopwatches.size());
         return mStopwatches.size();
     }
 
@@ -72,11 +81,13 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return getItem(position).getId();
     }
 
-    public synchronized Stopwatch createStopwatch(boolean shouldActive, String name) {
+    public synchronized Stopwatch createStopwatch(boolean start, String name) {
         Stopwatch watch = null;
         if (!TextUtils.isEmpty(name)) {
             watch = new Stopwatch(mNextId++, name);
-            watch.dEPstart(shouldActive);
+            if (start) {
+                watch.start();
+            }
 
             addStopwatch(watch);
         }
@@ -96,11 +107,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
 
         // restart refresher task, since before this we had no stopwatches
         if (mStopwatches.size() == 1) {
-            mHandler.postDelayed(new RefreshTask(), REFRESH_TIME_MS);
-            if (mMode == R.integer.mode_grid) {
-                getTimeTextView(holder).setText(calculateTimeString(holder.watch));
-                getActivePercentTextView(holder).setText(calculateActivePercentString(holder.watch));
-            }
+            mHandler.post(new RefreshTask());
         }
 
         notifyDataSetChanged();
@@ -128,7 +135,8 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
             convertView = holder.listView;
         } else {
             if (convertView == null || convertView.getId() != R.id.stopwatch_for_dialog) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.stopwatch_for_dialog, null);
+                android.util.Log.v("bulic", "inflating");
+                convertView = LayoutInflater.from(mActivity).inflate(R.layout.stopwatch_for_manager, null);
             }
             holder.listView = convertView;
 
@@ -148,20 +156,19 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
             convertView = holder.gridView;
         } else {
             if (convertView == null || convertView.getId() != R.id.stopwatch) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.stopwatch, null);
+                android.util.Log.v("bulic", "G inflating");
+                convertView = LayoutInflater.from(mActivity).inflate(R.layout.stopwatch, null);
             }
             holder.gridView = convertView;
 
-            TextView time = getTimeTextView(holder);
-            time.setText(calculateTimeString(holder.watch));
-            time.setTextColor(calculateTimeColor(holder.watch));
-
+            updateAll(holder);
             getGridNameTextView(holder).setText(holder.watch.getName());
 
             // TextView percent = getActivePercentTextView(holder);
             // percent.setTag(R.integer.tag_type, R.integer.type_graph);
             // percent.setTag(R.integer.tag_holder, holder);
             // percent.setOnClickListener(this);
+
             convertView.setTag(R.integer.tag_type, R.integer.type_toggle);
             convertView.setTag(R.integer.tag_holder, holder);
             convertView.setOnTouchListener(this);
@@ -170,6 +177,10 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         }
 
         return convertView;
+    }
+
+    public Stopwatch getMasterStopwatch() {
+        return mMasterWatch;
     }
 
     public Stopwatch[] getStopwatches() {
@@ -203,8 +214,8 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         public void run() {
             if (mClickedView == null && mMode == R.integer.mode_grid) {
                 for (Holder holder : mStopwatches) {
-                    getTimeTextView(holder).setText(calculateTimeString(holder.watch));
-                    getActivePercentTextView(holder).setText(calculateActivePercentString(holder.watch));
+                    updateTimeText(holder);
+                    updateAverageActivePercent(holder);
                 }
             }
 
@@ -231,14 +242,11 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
     public void onClick(final View v) {
         Holder holder = (Holder) v.getTag(R.integer.tag_holder);
         if (holder != null) {
-            Stopwatch watch = holder.watch;
             switch ((Integer) v.getTag(R.integer.tag_type)) {
             case R.integer.type_toggle:
-                watch.toggle();
-                getTimeTextView(holder).setTextColor(calculateTimeColor(watch));
+                toggle(holder);
                 break;
             case R.integer.type_delete:
-                watch.DEPstop();
                 mStopwatches.remove(holder);
                 notifyDataSetChanged();
                 break;
@@ -252,24 +260,27 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
             return false;
         }
 
-        final Resources res = mContext.getResources();
+        final Resources res = mActivity.getResources();
         final String[] choices = res.getStringArray(R.array.long_press_stopwatch_actions);
-        new AlertDialog.Builder(mContext).setTitle(holder.watch.getName()).setItems(choices,
+        new AlertDialog.Builder(mActivity).setTitle(holder.watch.getName()).setItems(choices,
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Stopwatch watch = holder.watch;
-
                         // Doing this rather than comparing indices ensures that the order
                         // of the dialog options can be changed just in the array.xml without
                         // worrying about having to change arbitrary ints (indices) elsewhere.
                         if (choices[which].equals(res.getString(R.string.stopwatch_action_toggle))) {
-                            watch.toggle();
-                            getTimeTextView(holder).setTextColor(calculateTimeColor(watch));
+                            toggle(holder);
                         } else if (choices[which].equals(res.getString(R.string.stopwatch_action_reset))) {
-                            watch.reset();
-                            getTimeTextView(holder).setTextColor(calculateTimeColor(watch));
+                            holder.watch.reset();
+                            updateAll(holder);
+                        } else if (choices[which].equals(res.getString(R.string.stopwatch_action_graph))) {
+                            Intent graphIntent = new Intent(mActivity, GraphActivity.class);
+                            double[][] data = StatCalculator.calculateAverages(mMasterWatch, holder.watch);
+                            graphIntent.putExtra(String.valueOf(R.integer.graph_title), holder.watch.getName());
+                            graphIntent.putExtra(String.valueOf(R.integer.graph_raw_x_data), data[0]);
+                            graphIntent.putExtra(String.valueOf(R.integer.graph_raw_y_data), data[1]);
+                            mActivity.startActivity(graphIntent);
                         } else if (choices[which].equals(res.getString(R.string.stopwatch_action_delete))) {
-                            watch.DEPstop();
                             mStopwatches.remove(holder);
                             notifyDataSetChanged();
                         }
@@ -283,8 +294,44 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         mMode = mode;
     }
 
-    private String calculateActivePercentString(Stopwatch watch) {
-        return ((int) (watch.getActivePercentage() * 100)) + "%";
+    public void toggleMaster() {
+        if (mMasterWatch.stop()) {
+            for (Holder holder : mStopwatches) {
+                if (holder.watch.stop()) {
+                    updateTimeColor(holder);
+                }
+            }
+            updateMasterColor();
+        } else {
+            mMasterWatch.start();
+            updateMasterColor();
+        }
+    }
+
+    public void resetMaster() {
+        if (mMasterWatch.reset()) {
+            for (Holder holder : mStopwatches) {
+                if (holder.watch.reset()) {
+                    updateAll(holder);
+                }
+            }
+        }
+    }
+
+    private void toggle(Holder holderToToggle) {
+        if (holderToToggle.watch.isStarted()) {
+            holderToToggle.watch.stop();
+        } else {
+            for (Holder holder : mStopwatches) {
+                if (holder.watch.stop()) {
+                    updateTimeColor(holder);
+                }
+            }
+            holderToToggle.watch.start();
+            mMasterWatch.start();
+            updateMasterColor();
+        }
+        updateTimeColor(holderToToggle);
     }
 
     private String calculateTimeString(Stopwatch watch) {
@@ -303,8 +350,33 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return (substring == 0 ? "00" : (substring < 10 ? "0" + substring : "" + substring));
     }
 
+    private void updateMasterColor() {
+        mActivity.findViewById(R.id.content).setBackgroundColor(
+                mActivity.getResources().getColor(mMasterWatch.isStarted() ?
+                        R.color.master_stopwatch_on : R.color.master_stopwatch_off));
+    }
+
+    private void updateTimeColor(Holder holder) {
+        getTimeTextView(holder).setTextColor(calculateTimeColor(holder.watch));
+    }
+
+    private void updateTimeText(Holder holder) {
+        getTimeTextView(holder).setText(calculateTimeString(holder.watch));
+    }
+
+    private void updateAverageActivePercent(Holder holder) {
+        getActivePercentTextView(holder).setText(
+                StatCalculator.calculateActivePercentString(mMasterWatch, holder.watch));
+    }
+
+    private void updateAll(Holder holder) {
+        updateTimeText(holder);
+        updateTimeColor(holder);
+        updateAverageActivePercent(holder);
+    }
+
     private int calculateTimeColor(Stopwatch watch) {
-        return (watch.isStarted() && watch.isActive() ? mTimeOnColor : mTimeOffColor);
+        return (watch.isStarted() ? mTimeOnColor : mTimeOffColor);
     }
 
     private TextView getGridNameTextView(Holder holder) {

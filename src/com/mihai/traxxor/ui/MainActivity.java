@@ -1,4 +1,4 @@
-package com.mihai.traxxor;
+package com.mihai.traxxor.ui;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -7,8 +7,14 @@ import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.mihai.traxxor.R;
+import com.mihai.traxxor.data.Stopwatch;
 
 public class MainActivity extends Activity {
+    private static final String KEY_MASTER_STOPWATCH = "key_master_stopwatch";
     private static final String KEY_STOPWATCH_LIST = "key_stopwatch_list";
 
     private StopwatchAdapter mAdapter;
@@ -18,11 +24,14 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         mAdapter = new StopwatchAdapter(this);
+        restoreIfPossible(savedInstanceState);
+        if (mAdapter.getMasterStopwatch() == null) {
+            mAdapter.setMasterStopwatch(new Stopwatch(0, getString(R.string.master_stopwatch)));
+        }
         setContentView(R.layout.main_activity);
 
         final ActionBar bar = getActionBar();
         bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        bar.setDisplayOptions(0, ActionBar.DISPLAY_SHOW_TITLE);
 
         bar.addTab(bar.newTab()
                 .setText(getString(R.string.tab_main))
@@ -33,12 +42,12 @@ public class MainActivity extends Activity {
                 .setTabListener(new TabListener<ManagerFragment>(
                         this, getString(R.string.tab_manage), ManagerFragment.class)));
 
-        restoreIfPossible(savedInstanceState);
     }
 
     @Override
     public void onSaveInstanceState(Bundle onInstanceState) {
         super.onSaveInstanceState(onInstanceState);
+        onInstanceState.putParcelable(KEY_MASTER_STOPWATCH, mAdapter.getMasterStopwatch());
         onInstanceState.putParcelableArray(KEY_STOPWATCH_LIST, mAdapter.getStopwatches());
     }
 
@@ -46,8 +55,15 @@ public class MainActivity extends Activity {
         return mAdapter;
     }
 
+    /**
+     * @return true iff restoration was successful (there was a master stopwatch)
+     */
     private void restoreIfPossible(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
+            Parcelable masterWatch = savedInstanceState.getParcelable(KEY_MASTER_STOPWATCH);
+            if (masterWatch != null && masterWatch instanceof Stopwatch) {
+                mAdapter.setMasterStopwatch((Stopwatch) masterWatch);
+            }
             Parcelable[] watches =
                     savedInstanceState.getParcelableArray(KEY_STOPWATCH_LIST);
             if (watches != null) {
@@ -58,6 +74,47 @@ public class MainActivity extends Activity {
                 }
             }
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        addMenutItem(menu, R.string.action_day_toggle);
+        addMenutItem(menu, R.string.action_day_advance);
+        addMenutItem(menu, R.string.action_day_reset);
+        addMenutItem(menu, R.string.action_manage);
+        return true;
+    }
+
+    private void addMenutItem(Menu menu, int resId) {
+        menu.add(resId).setTitleCondensed(String.valueOf(resId));
+    }
+
+    private int getMenuItemResId(MenuItem item) {
+        return Integer.parseInt(item.getTitleCondensed().toString());
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        boolean selected = true;
+
+        switch (getMenuItemResId(item)) {
+            case R.string.action_day_toggle:
+                mAdapter.toggleMaster();
+                break;
+            case R.string.action_day_advance:
+                mAdapter.resetMaster();
+                break;
+            case R.string.action_day_reset:
+                mAdapter.resetMaster();
+                break;
+            case R.string.action_manage:
+                break;
+            default:
+                selected = false;
+                break;
+        }
+
+        return selected;
     }
 
     public static class TabListener<T extends Fragment> implements ActionBar.TabListener {

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="@dimen/dialog_padding"
+    android:layout_height="match_parent"
     android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:clickable="false" >
 
         <EditText 
-            android:id="@+id/name"
+            android:id="@+id/stopwatch_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -21,7 +19,7 @@
             android:singleLine="true"
             />
         <ImageView
-            android:id="@+id/add" 
+            android:id="@+id/add_stopwatch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/action_add"
@@ -30,10 +28,10 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/list"
+        android:id="@+id/stopwatch_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
-    </ListView>
+        android:orientation="vertical"
+        />
 </LinearLayout>
 

@@ -15,5 +15,13 @@
     <integer name="mode_grid">0</integer>
     <integer name="mode_list">0</integer>
     
+    <integer name="action_type_start">0</integer>
+    <integer name="action_type_stop">0</integer>
+    
+    <integer name="graph_raw_x_data">0</integer>
+    <integer name="graph_raw_y_data">0</integer>
+    <integer name="graph_title">0</integer>
+    
     <integer name="describe_contents_stopwatch">0</integer>
+    <integer name="describe_contents_action">0</integer>
 </resources>
