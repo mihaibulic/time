@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<integer name="stopwatch_list_num_of_columns">2</integer>
+    <integer name="stopwatch_grid_num_columns">2</integer>
 
     <integer name="tag_type">0</integer>
     <integer name="tag_holder">0</integer>
@@ -11,17 +11,17 @@
     <integer name="type_graph">0</integer>
     <integer name="type_add">0</integer>
     <integer name="tag_name">0</integer>
-    
+
     <integer name="mode_grid">0</integer>
     <integer name="mode_list">0</integer>
-    
+
     <integer name="action_type_start">0</integer>
     <integer name="action_type_stop">0</integer>
-    
+
     <integer name="graph_raw_x_data">0</integer>
     <integer name="graph_raw_y_data">0</integer>
     <integer name="graph_title">0</integer>
-    
+
     <integer name="describe_contents_stopwatch">0</integer>
     <integer name="describe_contents_action">0</integer>
 </resources>

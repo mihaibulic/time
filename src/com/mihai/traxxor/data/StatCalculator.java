@@ -34,8 +34,6 @@ public class StatCalculator {
         // if either stopwatch is still active.
         double[][] data = new double[2][masterStopwatchActions.size() + slaveStopwatchActions.size()];
         while (masterIndex < masterStopwatchActions.size() && slaveIndex < slaveStopwatchActions.size()) {
-            android.util.Log.v("bulic", "m: " + masterIndex + " s: " + slaveIndex);
-
             StopwatchAction masterStopwatchAction = masterStopwatchActions.get(masterIndex);
             StopwatchAction slaveStopwatchAction = slaveStopwatchActions.get(slaveIndex);
             long step = Math.min(masterStopwatchAction.mTimestamp, slaveStopwatchAction.mTimestamp);

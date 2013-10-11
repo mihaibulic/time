@@ -42,21 +42,18 @@ public class GraphActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.graph);
 
-        LinearLayout v = (LinearLayout) findViewById(R.id.graph_holder);
-
-        // ADD X VALUES TO INTENT
         double[] rawXData = getIntent().getDoubleArrayExtra(String.valueOf(R.integer.graph_raw_x_data));
         double[] rawYData = getIntent().getDoubleArrayExtra(String.valueOf(R.integer.graph_raw_y_data));
+        final String title = getIntent().getStringExtra(String.valueOf(R.integer.graph_title));
+
+        LinearLayout v = (LinearLayout) findViewById(R.id.graph_holder);
         GraphViewData[] data = new GraphViewData[rawXData.length];
         for (int i = 0; i < rawXData.length; i++) {
             data[i] = new GraphViewData(rawXData[i], rawYData[i]);
-            android.util.Log.v("bulic", "plotting: " + rawXData[i] + ", " + rawYData[i]);
         }
 
         GraphViewSeries series = new GraphViewSeries(data);
-
-        GraphView graphView = new LineGraphView(this, "GraphViewDemo");
-        graphView.setTitle(getIntent().getStringExtra(String.valueOf(R.integer.graph_title)));
+        GraphView graphView = new LineGraphView(this, title);
         graphView.setGraphViewStyle(new GraphViewStyle(Color.BLACK, Color.BLACK, Color.BLACK));
         graphView.setManualYAxisBounds(1, 0);
         graphView.setCustomLabelFormatter(new Formatter());

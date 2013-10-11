@@ -1,5 +1,23 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-</FrameLayout>
+    android:layout_height="match_parent"
+    android:background="@color/master_stopwatch_off"
+    android:orientation="vertical"
+    android:keepScreenOn="true" >
+    <GridView
+        android:id="@+id/stopwatch_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/padding"
+        android:horizontalSpacing="@dimen/padding"
+        android:verticalSpacing="@dimen/padding"
+        android:paddingLeft="@dimen/padding"
+        android:paddingRight="@dimen/padding"
+        android:paddingTop="@dimen/action_bar_height"
+        android:numColumns="@integer/stopwatch_grid_num_columns"
+        android:clipToPadding="false"
+        android:gravity="center" >
+    </GridView>
+</LinearLayout>

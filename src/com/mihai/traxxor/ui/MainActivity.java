@@ -1,14 +1,18 @@
 package com.mihai.traxxor.ui;
 
 import android.app.ActionBar;
-import android.app.ActionBar.Tab;
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.mihai.traxxor.R;
 import com.mihai.traxxor.data.Stopwatch;
@@ -22,26 +26,21 @@ public class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mAdapter = new StopwatchAdapter(this);
+        mAdapter = StopwatchAdapter.getInstance(this);
+        mAdapter.setMode(R.integer.mode_grid);
         restoreIfPossible(savedInstanceState);
-        if (mAdapter.getMasterStopwatch() == null) {
-            mAdapter.setMasterStopwatch(new Stopwatch(0, getString(R.string.master_stopwatch)));
-        }
+        initActionBar();
+
         setContentView(R.layout.main_activity);
+        ((GridView) findViewById(R.id.stopwatch_grid)).setAdapter(mAdapter);
+        mAdapter.setMasterStopwatchViews((TextView) findViewById(R.id.master_stopwatch),
+                findViewById(R.id.content));
+    }
 
-        final ActionBar bar = getActionBar();
-        bar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-
-        bar.addTab(bar.newTab()
-                .setText(getString(R.string.tab_main))
-                .setTabListener(new TabListener<StopwatchFragment>(
-                        this, getString(R.string.tab_main), StopwatchFragment.class)));
-        bar.addTab(bar.newTab()
-                .setText(getString(R.string.tab_manage))
-                .setTabListener(new TabListener<ManagerFragment>(
-                        this, getString(R.string.tab_manage), ManagerFragment.class)));
-
+    @Override
+    public void onResume() {
+        mAdapter.setMode(R.integer.mode_grid);
+        super.onResume();
     }
 
     @Override
@@ -53,6 +52,18 @@ public class MainActivity extends Activity {
 
     public StopwatchAdapter getAdapter() {
         return mAdapter;
+    }
+
+    private void initActionBar() {
+        ActionBar actionBar = getActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setIcon(R.drawable.ic_action_bar_logo);
+        LayoutInflater inflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflator.inflate(R.layout.action_bar, null);
+        ActionBar.LayoutParams params = new ActionBar.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        actionBar.setCustomView(view, params);
     }
 
     /**
@@ -67,6 +78,7 @@ public class MainActivity extends Activity {
             Parcelable[] watches =
                     savedInstanceState.getParcelableArray(KEY_STOPWATCH_LIST);
             if (watches != null) {
+                mAdapter.clearStopwatches();
                 for (Parcelable watch : watches) {
                     if (watch instanceof Stopwatch) {
                         mAdapter.addStopwatch((Stopwatch) watch);
@@ -108,6 +120,7 @@ public class MainActivity extends Activity {
                 mAdapter.resetMaster();
                 break;
             case R.string.action_manage:
+                startActivity(new Intent(this, ManagerActivity.class));
                 break;
             default:
                 selected = false;
@@ -115,52 +128,5 @@ public class MainActivity extends Activity {
         }
 
         return selected;
-    }
-
-    public static class TabListener<T extends Fragment> implements ActionBar.TabListener {
-        private final Activity mActivity;
-        private final String mTag;
-        private final Class<T> mClass;
-        private final Bundle mArgs;
-        private Fragment mFragment;
-
-        public TabListener(Activity activity, String tag, Class<T> clz) {
-            this(activity, tag, clz, null);
-        }
-
-        public TabListener(Activity activity, String tag, Class<T> clz, Bundle args) {
-            mActivity = activity;
-            mTag = tag;
-            mClass = clz;
-            mArgs = args;
-
-            // Check to see if we already have a fragment for this tab, probably
-            // from a previously saved state.  If so, deactivate it, because our
-            // initial state is that a tab isn't shown.
-            mFragment = mActivity.getFragmentManager().findFragmentByTag(mTag);
-            if (mFragment != null && !mFragment.isDetached()) {
-                FragmentTransaction ft = mActivity.getFragmentManager().beginTransaction();
-                ft.detach(mFragment);
-                ft.commit();
-            }
-        }
-
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
-            if (mFragment == null) {
-                mFragment = Fragment.instantiate(mActivity, mClass.getName(), mArgs);
-                ft.add(android.R.id.content, mFragment, mTag);
-            } else {
-                ft.attach(mFragment);
-            }
-        }
-
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
-            if (mFragment != null) {
-                ft.detach(mFragment);
-            }
-        }
-
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
-        }
     }
 }

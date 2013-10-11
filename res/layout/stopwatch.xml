@@ -7,6 +7,7 @@
     android:gravity="center"
     android:clickable="true"
     android:longClickable="true"
+    android:background="@color/background"
     android:padding="@dimen/padding" >
 
     <TextView
@@ -15,7 +16,8 @@
         android:layout_height="wrap_content"
         android:singleLine="true"
         android:ellipsize="end"
-        android:textSize="@dimen/time_text" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/aux_text" />
 
     <TextView
         android:id="@+id/time"
@@ -29,6 +31,7 @@
         android:id="@+id/active_percent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/time_text" />
+        android:textColor="@color/black"
+        android:textSize="@dimen/aux_text" />
 
 </LinearLayout>

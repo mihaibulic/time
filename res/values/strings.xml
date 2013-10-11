@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Traxxor</string>
+    <string name="app_name">Traxor</string>
 
-    <string name="tab_main">Stopwatches</string>
+    <string name="tab_main">Traxs</string>
     <string name="tab_manage">Manage</string>
 
-    <string name="action_day_toggle">Toggle Day</string>
+    <string name="action_day_toggle">Play/Pause Day</string>
     <string name="action_day_reset">Reset Day</string>
-    <string name="action_day_advance">New Day</string>
-    <string name="action_manage">Manage Stopwatches</string>
+    <string name="action_day_advance">Next Day</string>
+    <string name="action_manage">Manage My Traxs</string>
 
     <string name="action_add">Add</string>
     <string name="action_delete">Delete</string>
@@ -18,9 +18,9 @@
     <string name="stopwatch_action_graph">Graph</string>
     <string name="stopwatch_action_delete">Delete</string>
 
-    <string name="start_time">0:00:00</string>
+    <string name="start_time">00:00:00</string>
     <string name="stopwatch_name">Name</string>
-    <string name="master_stopwatch">Total time today:</string>
+    <string name="master_stopwatch_description">Total time today</string>
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
