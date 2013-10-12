@@ -16,9 +16,17 @@ import com.jjoe64.graphview.LineGraphView;
 import com.mihai.traxxor.R;
 
 public class GraphActivity extends Activity {
+    // if graph spans more than this many ms, don't show seconds on X-axis
+    private static final int SECONDS_CUTOFF_MS = 5 * 60 * 1000;
 
     class Formatter implements CustomLabelFormatter {
         Calendar cl = Calendar.getInstance();
+        boolean includeSeconds;
+
+        public Formatter(boolean includeSeconds) {
+            super();
+            this.includeSeconds = includeSeconds;
+        }
 
         public String formatLabel(double value, boolean isX) {
             String retValue = "";
@@ -32,19 +40,29 @@ public class GraphActivity extends Activity {
 
         private String getTimeString(Calendar cl, long milliseconds) {
             cl.setTimeInMillis(milliseconds);
-            return "" + cl.get(Calendar.HOUR_OF_DAY) + ":" +
-                    cl.get(Calendar.MINUTE) + ":" + cl.get(Calendar.SECOND);
+            int h = cl.get(Calendar.HOUR_OF_DAY);
+            int m = cl.get(Calendar.MINUTE);
+            int s = cl.get(Calendar.SECOND);
+            return h + ":" +
+                    (m < 10 ? "0" : "") + m +
+                    (includeSeconds ? (":" + (s < 10 ? "0" : "") + s) : "");
         }
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.graph);
-
         double[] rawXData = getIntent().getDoubleArrayExtra(String.valueOf(R.integer.graph_raw_x_data));
         double[] rawYData = getIntent().getDoubleArrayExtra(String.valueOf(R.integer.graph_raw_y_data));
         final String title = getIntent().getStringExtra(String.valueOf(R.integer.graph_title));
+
+        if (rawXData == null || rawYData == null || title == null ||
+                rawXData.length == 0 || rawYData.length == 0 || rawXData.length != rawYData.length) {
+            return;
+        }
+
+        setContentView(R.layout.graph);
+        boolean includeSeconds = (rawXData[rawXData.length - 1] - rawXData[0]) < SECONDS_CUTOFF_MS;
 
         LinearLayout v = (LinearLayout) findViewById(R.id.graph_holder);
         GraphViewData[] data = new GraphViewData[rawXData.length];
@@ -56,7 +74,7 @@ public class GraphActivity extends Activity {
         GraphView graphView = new LineGraphView(this, title);
         graphView.setGraphViewStyle(new GraphViewStyle(Color.BLACK, Color.BLACK, Color.BLACK));
         graphView.setManualYAxisBounds(1, 0);
-        graphView.setCustomLabelFormatter(new Formatter());
+        graphView.setCustomLabelFormatter(new Formatter(includeSeconds));
         graphView.addSeries(series);
 
         v.addView(graphView);

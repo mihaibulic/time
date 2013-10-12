@@ -42,7 +42,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
 
     private Vector<Holder> mStopwatches = new Vector<Holder>();
     private Stopwatch mMasterWatch;
-    private TextView mMasterGridView;
+    private TextView mMasterTextView;
     private View mMasterBackground;
 
     private View mClickedView = null;
@@ -85,18 +85,20 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         sTimeOffColor = res.getColor(R.color.stopwatch_off);
         sMasterOnColor = res.getColor(R.color.master_stopwatch_on);
         sMasterOffColor = res.getColor(R.color.master_stopwatch_off);
+        mMasterWatch = new Stopwatch(-1, sActivity.getString(R.string.master_stopwatch_description));
     }
 
-    public void setMasterStopwatchViews(TextView view, View contentView) {
-        if (mMasterWatch== null) {
-            mMasterWatch = new Stopwatch(-1, sActivity.getString(R.string.master_stopwatch_description));
-        }
-        mMasterGridView = view;
+    public void setMasterViews(TextView view, View contentView) {
+        mMasterTextView = view;
         mMasterBackground = contentView;
     }
 
     public void setMasterStopwatch(Stopwatch master) {
-        mMasterWatch = master;
+        if (master != null) {
+            mMasterWatch = master;
+        } else if (mMasterWatch == null) {
+            mMasterWatch = new Stopwatch(-1, sActivity.getString(R.string.master_stopwatch_description));
+        }
     }
 
     public int getCount() {
@@ -130,15 +132,6 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         mStopwatches.add(holder);
         holder.gridView = getGridBasedView(mStopwatches.size() - 1, null, null);
         holder.listView = getListBasedView(mStopwatches.size() - 1, null, null);
-
-        if (mHandler == null) {
-            mHandler = new Handler();
-        }
-
-        // Just created first stopwatch, start up refresh task.
-        if (mStopwatches.size() == 1) {
-            mHandler.post(new RefreshTask());
-        }
 
         notifyDataSetChanged();
     }
@@ -248,7 +241,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
                 updateMaster();
             }
 
-            if (mStopwatches.size() > 0) {
+            if (mMasterWatch.isStarted()) {
                 mHandler.postDelayed(new RefreshTask(), REFRESH_TIME_MS);
             }
         }
@@ -323,34 +316,60 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         mMode = mode;
     }
 
-    public void toggleMaster() {
-        if (mMasterWatch.stop()) {
+    public void resetMaster() {
+        if (mMasterWatch.reset()) {
+            updateMaster();
             for (Holder holder : mStopwatches) {
-                if (holder.watch.stop()) {
-                    updateTimeColor(holder);
+                if (holder.watch.reset()) {
+                    updateAll(holder);
                 }
             }
-            updateMasterColor();
-        } else {
-            mMasterWatch.start();
-            updateMasterColor();
         }
     }
 
-    private void toggle(Holder holderToToggle) {
-        if (holderToToggle.watch.isStarted()) {
-            holderToToggle.watch.stop();
-        } else {
+    public void startMaster() {
+        if (mMasterWatch.start()) {
+            updateMasterColor();
+
+            if (mHandler == null) {
+                mHandler = new Handler();
+            }
+            mHandler.post(new RefreshTask());
+        }
+    }
+
+    public void toggleMaster() {
+        if (mMasterWatch.stop()) {
+            updateMasterColor();
             for (Holder holder : mStopwatches) {
                 if (holder.watch.stop()) {
                     updateTimeColor(holder);
                 }
             }
-            holderToToggle.watch.start();
-            mMasterWatch.start();
-            updateMasterColor();
+        } else {
+            startMaster();
         }
-        updateTimeColor(holderToToggle);
+    }
+
+    private void start(Holder holder) {
+        if (!holder.watch.isStarted()) {
+            for (Holder h : mStopwatches) {
+                if (h.watch.stop()) {
+                    updateTimeColor(h);
+                }
+            }
+            holder.watch.start();
+            startMaster();
+            updateTimeColor(holder);
+        }
+    }
+
+    private void toggle(Holder holder) {
+        if (holder.watch.stop()) {
+            updateTimeColor(holder);
+        } else {
+            start(holder);
+        }
     }
 
     private String calculateTimeString(Stopwatch watch) {
@@ -369,23 +388,13 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return (substring == 0 ? "00" : (substring < 10 ? "0" + substring : "" + substring));
     }
 
-    public void resetMaster() {
-        if (mMasterWatch.reset()) {
-            for (Holder holder : mStopwatches) {
-                if (holder.watch.reset()) {
-                    updateAll(holder);
-                }
-            }
-        }
-    }
-
     private void updateMasterColor() {
         final int color = mMasterWatch.isStarted() ? sMasterOnColor : sMasterOffColor;
         mMasterBackground.setBackgroundColor(color);
     }
 
     private void updateMasterTime() {
-        mMasterGridView.setText(calculateTimeString(mMasterWatch));
+        mMasterTextView.setText(calculateTimeString(mMasterWatch));
     }
 
     private void updateMaster() {

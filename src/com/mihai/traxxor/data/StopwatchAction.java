@@ -6,15 +6,31 @@ import android.os.Parcelable;
 import com.mihai.traxxor.R;
 
 public class StopwatchAction implements Parcelable {
-    public long mTimestamp;
-    public long mDuration;
-    public int mType;
+    private long mTimestamp;
+    private long mDuration;
+    private int mType;
 
     public StopwatchAction(long timestamp, long duration, int type) {
         this.mTimestamp = timestamp;
         this.mDuration = duration;
         this.mType = type;
     }
+
+    public long getTimestamp() {
+        return mTimestamp;
+    }
+
+    public long getDuration() {
+        return mDuration;
+    }
+
+    public int getType() {
+        return mType;
+    }
+
+    // ***************************************************************************
+    // Parcelable related code only below this.
+    // ***************************************************************************
 
     public int describeContents() {
         return R.integer.describe_contents_action;

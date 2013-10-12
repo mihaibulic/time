@@ -33,7 +33,7 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.main_activity);
         ((GridView) findViewById(R.id.stopwatch_grid)).setAdapter(mAdapter);
-        mAdapter.setMasterStopwatchViews((TextView) findViewById(R.id.master_stopwatch),
+        mAdapter.setMasterViews((TextView) findViewById(R.id.master_stopwatch),
                 findViewById(R.id.content));
     }
 
@@ -75,8 +75,7 @@ public class MainActivity extends Activity {
             if (masterWatch != null && masterWatch instanceof Stopwatch) {
                 mAdapter.setMasterStopwatch((Stopwatch) masterWatch);
             }
-            Parcelable[] watches =
-                    savedInstanceState.getParcelableArray(KEY_STOPWATCH_LIST);
+            Parcelable[] watches = savedInstanceState.getParcelableArray(KEY_STOPWATCH_LIST);
             if (watches != null) {
                 mAdapter.clearStopwatches();
                 for (Parcelable watch : watches) {

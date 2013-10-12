@@ -1,6 +1,6 @@
 package com.mihai.traxxor.data;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -14,7 +14,7 @@ public class Stopwatch implements Parcelable {
     private int mId;
     private String mName;
     private long mCreationTime;
-    private LinkedList<StopwatchAction> mStopwatchActions;
+    private ArrayList<StopwatchAction> mStopwatchActions;
     private boolean mIsStarted;
     private long mLastTime;
     private long mDuration;
@@ -27,7 +27,7 @@ public class Stopwatch implements Parcelable {
         mId = id;
         mName = name;
         mCreationTime = getSystemTimeInMs();
-        mStopwatchActions = new LinkedList<StopwatchAction>();
+        mStopwatchActions = new ArrayList<StopwatchAction>();
         mIsStarted = false;
     }
 
@@ -38,7 +38,7 @@ public class Stopwatch implements Parcelable {
             int id,
             String name,
             long creationTime,
-            LinkedList<StopwatchAction> StopwatchActions,
+            ArrayList<StopwatchAction> StopwatchActions,
             boolean isStarted,
             long lastTime,
             long duration) {
@@ -142,13 +142,13 @@ public class Stopwatch implements Parcelable {
                 + (mIsStarted ? (getSystemTimeInMs() - mLastTime) : 0);
     }
 
-    public LinkedList<StopwatchAction> getStopwatchActions() {
+    public ArrayList<StopwatchAction> getStopwatchActions() {
         return mStopwatchActions;
     }
 
     public void printTimes() {
         for (StopwatchAction a : mStopwatchActions) {
-            android.util.Log.i(TAG, "" + a.mDuration);
+            android.util.Log.i(TAG, "" + a.getDuration());
         }
     }
 
@@ -182,8 +182,8 @@ public class Stopwatch implements Parcelable {
             int id = in.readInt();
             String name = in.readString();
             long creationTime = in.readLong();
-            LinkedList<StopwatchAction> StopwatchActions = new LinkedList<StopwatchAction>();
-            in.readList(StopwatchActions, null);
+            ArrayList<StopwatchAction> StopwatchActions = new ArrayList<StopwatchAction>();
+            in.readList(StopwatchActions, getClass().getClassLoader());
             boolean isStarted = (in.readByte() == 1);
             long lastTime = in.readLong();
             long duration = in.readLong();

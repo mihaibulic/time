@@ -1,6 +1,6 @@
 package com.mihai.traxxor.data;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import com.mihai.traxxor.R;
 
@@ -8,7 +8,7 @@ public class StatCalculator {
 
     public static String calculateActivePercentString(Stopwatch master, Stopwatch slave) {
         double percent = calculateActivePercentage(master, slave);
-        return percent < 0 ? "N/A" : ((int) (percent * 100) + "%");
+        return percent < 0 ? "N/A" : (Math.round(percent * 100) + "%");
     }
 
     public static double calculateActivePercentage(Stopwatch master, Stopwatch slave) {
@@ -19,60 +19,134 @@ public class StatCalculator {
      * @return array of active percentages (cumulative)
      */
     public static double[][] calculateAverages(Stopwatch master, Stopwatch slave) {
-        LinkedList<StopwatchAction> masterStopwatchActions = master.getStopwatchActions();
-        LinkedList<StopwatchAction> slaveStopwatchActions = slave.getStopwatchActions();
+        ArrayList<StopwatchAction> masterActions = master.getStopwatchActions();
+        ArrayList<StopwatchAction> slaveActions = slave.getStopwatchActions();
 
-        if (masterStopwatchActions.size() == 0 || slaveStopwatchActions.size() == 0) {
-            return null;
+        if (masterActions.size() == 0 || slaveActions.size() == 0) {
+            return new double[][] { { 0.0 }, { 0.0 } };
         }
 
-        int masterIndex = 0;
-        int slaveIndex = 0;
-        int dataIndex = 0;
+        // The extra slot is for the current result since this may not be reflected
+        // in the StopwatchActions if either stopwatch is still active.
+        boolean extra = (slave.isStarted() || master.isStarted());
+        double[][] data = new double[2][masterActions.size() + slaveActions.size() + (extra ? 1 : 0)];
 
-        // The extra slot is for the current result since this may not be reflected in the StopwatchActions
-        // if either stopwatch is still active.
-        double[][] data = new double[2][masterStopwatchActions.size() + slaveStopwatchActions.size()];
-        while (masterIndex < masterStopwatchActions.size() && slaveIndex < slaveStopwatchActions.size()) {
-            StopwatchAction masterStopwatchAction = masterStopwatchActions.get(masterIndex);
-            StopwatchAction slaveStopwatchAction = slaveStopwatchActions.get(slaveIndex);
-            long step = Math.min(masterStopwatchAction.mTimestamp, slaveStopwatchAction.mTimestamp);
-
-            // Since one of the stopwatches is ahead of the other, we must subtract any duration
-            // that may have been accumulated beyond the step.
-            // If the StopwatchAction was a start, then the stopwatch was stopped before and did not accumulate
-            // duration so we don't need to compensate.
-            long masterTemp = masterStopwatchAction.mDuration -
-                    (masterStopwatchAction.mType == R.integer.action_type_stop ? masterStopwatchAction.mTimestamp - step : 0);
-            long slaveTemp = slaveStopwatchAction.mDuration -
-                    (slaveStopwatchAction.mType == R.integer.action_type_stop ? slaveStopwatchAction.mTimestamp - step : 0);
-
-
-            data[0][dataIndex] = step;
-            data[1][dataIndex++] = (masterTemp == 0 ? 1 : (double) slaveTemp / masterTemp);
-
-            if (masterStopwatchAction.mTimestamp < slaveStopwatchAction.mTimestamp &&
-                    (masterIndex + 1) < masterStopwatchActions.size()) {
-                masterIndex++;
-            } else {
-                slaveIndex++;
-            }
+        ActionStepper masterStepper = new ActionStepper(masterActions);
+        ActionStepper slaveStepper = new ActionStepper(slaveActions);
+        final int size = masterActions.size() + slaveActions.size();
+        for (int d = 0; d < size; d++) {
+            long step = getNext(masterStepper, slaveStepper, d == 0);
+            data[0][d] = step;
+            data[1][d] = getRatio(
+                    masterStepper.getDurationAt(step),
+                    slaveStepper.getDurationAt(step),
+                    (matched == slaveStepper));
         }
-        data[0][data[0].length - 1] = Stopwatch.getSystemTimeInMs();
-        data[1][data[1].length - 1] = calculateActivePercentage(master, slave);
+
+        if (extra) {
+            data[0][data[0].length - 1] = Stopwatch.getSystemTimeInMs();
+            data[1][data[1].length - 1] = calculateActivePercentage(master, slave);
+        }
 
         return data;
     }
 
-    /**
-     * @param winddowSizeMs - size of the window in milliseconds
-     * @param master
-     * @param slave
-     * @return array of active percentages (not cumulative, uses window size)
-     */
-    public static double[] calculateAverages(final int winddowSizeMs, Stopwatch master, Stopwatch slave) {
+    private static ActionStepper matched;
+    private static class ActionStepper {
+        ArrayList<StopwatchAction> actions;
+        int index = 0;
 
-        return new double[] {};
+        public ActionStepper(ArrayList<StopwatchAction> actions) {
+            this.actions = actions;
+        }
+
+        public long getDurationAt(long timestamp) {
+            long duration;
+            if (index >= actions.size()) {
+                duration = actions.get(actions.size() - 1).getDuration();
+            } else if (timestamp < actions.get(index).getTimestamp()) {
+                duration = 0;
+            } else {
+                while (index + 1 < actions.size() && actions.get(index + 1).getTimestamp() <= timestamp) {
+                    index++;
+                }
+
+                duration = actions.get(index).getDuration();
+                if (timestamp > actions.get(index).getTimestamp() &&
+                        actions.get(index).getType() == R.integer.action_type_start) {
+                    duration += timestamp - actions.get(index).getTimestamp();
+                }
+            }
+
+            return duration;
+        }
+
+        public long getTimestamp() {
+            return actions.get(index).getTimestamp();
+        }
+
+        public boolean hasNext() {
+            return index + 1 < actions.size();
+        }
+
+        public long getNextTimestamp() {
+            return hasNext() ? actions.get(index + 1).getTimestamp() : Long.MAX_VALUE;
+        }
+    }
+
+    private static long getNext(ActionStepper m, ActionStepper s, boolean first) {
+        long next;
+
+        if (first) {
+            next = getMin(m, s, first);
+        } else if (m.getTimestamp() < s.getTimestamp()) {
+            if (m == matched) {
+                next = s.getTimestamp();
+                matched = s;
+            } else {
+                // next smallest
+                next = getMin(m, s, first);
+            }
+        } else {
+            if (s == matched) {
+                next = m.getTimestamp();
+                matched = m;
+            } else {
+                // next smallest
+                next = getMin(m, s, first);
+            }
+        }
+
+        return next;
+    }
+
+    private static long getMin(ActionStepper m, ActionStepper s, boolean current) {
+        long next;
+        long mTime = current ? m.getTimestamp() : m.getNextTimestamp();
+        long sTime = current ? s.getTimestamp() : s.getNextTimestamp();
+
+        if (mTime < sTime) {
+            next = mTime;
+            matched = m;
+        } else {
+            next = sTime;
+            matched = s;
+        }
+
+        return next;
+    }
+
+    private static double getRatio(double master, double slave, boolean slaveFirst) {
+        double data = 0;
+
+        if (master == 0) {
+            // if slave duration isn't 0 or it occurred first, 1.0, otherwise 0.0
+            data = (slaveFirst || slave != 0) ? 1.0 : 0.0;
+        } else {
+            data = slave / master;
+        }
+
+        return data;
     }
 
     //    public double getActivePercentage() {
