@@ -28,4 +28,18 @@
         android:textSize="@dimen/time_text"
         android:textColor="@color/black"
         />
+    <ImageButton
+        android:id="@+id/manage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_settings"
+        android:contentDescription="@string/action_manage"
+        android:background="@drawable/bg" />
+    <ImageButton
+        android:id="@+id/toggle_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_playpause_day"
+        android:contentDescription="@string/action_day_toggle"
+        android:background="@drawable/bg" />
 </LinearLayout>

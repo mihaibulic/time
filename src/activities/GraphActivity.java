@@ -1,4 +1,4 @@
-package com.mihai.traxxor.ui;
+package activities;
 
 import java.util.Calendar;
 

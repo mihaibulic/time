@@ -2,9 +2,9 @@
 <resources>
     <array
         name="long_press_stopwatch_actions">
+        <item>@string/stopwatch_action_graph</item>
         <item>@string/stopwatch_action_toggle</item>
         <item>@string/stopwatch_action_reset</item>
-        <item>@string/stopwatch_action_graph</item>
         <item>@string/stopwatch_action_delete</item>
     </array>
 </resources>

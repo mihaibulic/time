@@ -3,7 +3,7 @@
     <integer name="stopwatch_grid_num_columns">2</integer>
 
     <integer name="tag_type">0</integer>
-    <integer name="tag_holder">0</integer>
+    <integer name="tag_stopwatch">0</integer>
 
     <integer name="type_toggle">0</integer>
     <integer name="type_reset">0</integer>
@@ -22,6 +22,8 @@
     <integer name="graph_raw_y_data">0</integer>
     <integer name="graph_title">0</integer>
 
+    <integer name="manager_request_code">0</integer>
+    
     <integer name="describe_contents_stopwatch">0</integer>
     <integer name="describe_contents_action">0</integer>
 </resources>
