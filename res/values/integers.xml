@@ -2,6 +2,19 @@
 <resources>
     <integer name="stopwatch_grid_num_columns">2</integer>
 
+    <integer name="key_master_stopwatch">0</integer>
+    <integer name="key_stopwatch_list">0</integer>
+
+    <integer name="extra_graph_title">0</integer>
+    <integer name="extra_stopwatch_names">0</integer>
+    <integer name="extra_stopwatch_ids">0</integer>
+    <integer name="extra_stopwatches_to_add">0</integer>
+    <integer name="extra_stopwatches_to_delete">0</integer>
+    <integer name="extra_graph_raw_x_data">0</integer>
+    <integer name="extra_graph_raw_y_data">0</integer>
+    <integer name="extra_graph_series_ids">0</integer>
+    <integer name="extra_graph_series_names">0</integer>
+
     <integer name="tag_type">0</integer>
     <integer name="tag_stopwatch">0</integer>
 
@@ -10,17 +23,9 @@
     <integer name="type_delete">0</integer>
     <integer name="type_graph">0</integer>
     <integer name="type_add">0</integer>
-    <integer name="tag_name">0</integer>
-
-    <integer name="mode_grid">0</integer>
-    <integer name="mode_list">0</integer>
 
     <integer name="action_type_start">0</integer>
     <integer name="action_type_stop">0</integer>
-
-    <integer name="graph_raw_x_data">0</integer>
-    <integer name="graph_raw_y_data">0</integer>
-    <integer name="graph_title">0</integer>
 
     <integer name="manager_request_code">0</integer>
     

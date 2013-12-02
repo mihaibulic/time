@@ -6,6 +6,7 @@
     <color name="stopwatch_off">#FFFF5353</color>
     <color name="stopwatch_on">#FF42cc42</color>
     <color name="black">#FF4C4C4C</color>
+    <color name="gray">#FFBCBCBC</color>
     <color name="transparent">#00000000</color>
     <color name="android_blue">#9933B5E5</color>
 

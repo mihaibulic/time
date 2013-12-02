@@ -2,15 +2,21 @@
 <resources>
     <string name="app_name">Traxxor</string>
 
+    <string name="main_empty_view">Go to Manage in settings to create Traxx.</string>
+    <string name="manager_empty_view">No Traxx, create one above.</string>
+
+    <string name="action_manage">Manage Traxx</string>
+    <string name="action_graph_discrete">Graph All Traxx Discretely</string>
+    <string name="action_graph_cumulative">Graph All Traxx Cumulatively</string>
     <string name="action_day_toggle">Play/Pause Day</string>
     <string name="action_day_reset">Reset Day</string>
     <string name="action_day_advance">Next Day</string>
-    <string name="action_manage">Manage Traxx</string>
 
     <string name="action_add">Add</string>
     <string name="action_delete">Delete</string>
 
-    <string name="stopwatch_action_graph">Graph</string>
+    <string name="stopwatch_action_graph_discrete">Graph Discretely</string>
+    <string name="stopwatch_action_graph_cumulative">Graph Cumulatively</string>
     <string name="stopwatch_action_toggle">Toggle</string>
     <string name="stopwatch_action_reset">Reset</string>
     <string name="stopwatch_action_delete">Delete</string>
@@ -18,6 +24,7 @@
     <string name="start_time">00:00:00</string>
     <string name="stopwatch_name">Name of new Traxx</string>
     <string name="master_stopwatch_description">Total time today</string>
+    <string name="all_stopwatches_graph">All Traxx</string>
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>

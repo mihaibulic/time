@@ -1,9 +1,10 @@
-package adapters;
+package com.mihai.traxxor.adapters;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,6 +20,8 @@ public class ManagerAdapter extends BaseAdapter implements OnClickListener {
     private ArrayList<String> mStopwatchNames = new ArrayList<String>();
     private ArrayList<Integer> mStopwatchIds = new ArrayList<Integer>();
     private ArrayList<Integer> mToDelete = new ArrayList<Integer>();
+
+    private int mTempId = 0;
 
     public ManagerAdapter(Activity act) {
         sActivity = act;
@@ -53,30 +56,28 @@ public class ManagerAdapter extends BaseAdapter implements OnClickListener {
 
     public synchronized void addStopwatch(CharSequence name) {
         mStopwatchNames.add(formatName(name));
-        mStopwatchIds.add(-1);
+        mStopwatchIds.add(--mTempId);
 
         notifyDataSetChanged();
     }
 
-    private synchronized void removeStopwatch(int id) {
+    public synchronized void removeStopwatch(int id) {
         for (int i = 0; i < mStopwatchIds.size(); i++) {
             if (mStopwatchIds.get(i) == id) {
                 mStopwatchIds.remove(i);
                 mStopwatchNames.remove(i);
+                if (id >= 0) {
+                    mToDelete.add(id);
+                }
             }
         }
     }
 
     public void onClick(final View v) {
         if (v.getTag() instanceof Integer) {
-            int id = (Integer) v.getTag();
-            if (id != -1) {
-                mToDelete.add(id);
-            }
-            removeStopwatch(id);
+            removeStopwatch((Integer) v.getTag());
+            notifyDataSetChanged();
         }
-        mStopwatchNames.remove(v);
-        notifyDataSetChanged();
     }
 
     public synchronized View getView(int position, View convertView, ViewGroup parent) {
@@ -99,7 +100,11 @@ public class ManagerAdapter extends BaseAdapter implements OnClickListener {
     public ArrayList<Integer> getDeleted() {
         return mToDelete;
     }
-    
+
+    public boolean isValidName(CharSequence name) {
+        return !TextUtils.isEmpty(name) && !TextUtils.isEmpty(name.toString().trim());
+    }
+
     private String formatName(CharSequence name) {
         String in = name.toString().trim();
         String[] split = in.split(" ");

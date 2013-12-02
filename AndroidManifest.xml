@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Regular" >
 
         <activity
-            android:name="activities.MainActivity"
+            android:name="com.mihai.traxxor.activities.MainActivity"
             android:configChanges="keyboardHidden|screenSize"
             android:label="@string/app_name"
             android:theme="@style/Theme.Main" >
@@ -25,8 +25,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="activities.ManagerActivity" />
-        <activity android:name="activities.GraphActivity" />
+        <activity android:name="com.mihai.traxxor.activities.ManagerActivity" />
+        <activity android:name="com.mihai.traxxor.activities.GraphActivity" />
     </application>
 
 </manifest>

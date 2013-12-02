@@ -13,11 +13,11 @@ public class Stopwatch implements Parcelable {
 
     private int mId;
     private String mName;
-    private long mCreationTime;
     private ArrayList<StopwatchAction> mStopwatchActions;
     private boolean mIsStarted;
     private long mLastTime;
-    private long mDuration;
+    private long mRawDuration;
+    private boolean mIsWork;
 
     @Deprecated
     public Stopwatch() {
@@ -26,9 +26,9 @@ public class Stopwatch implements Parcelable {
     public Stopwatch(int id, String name) {
         mId = id;
         mName = name;
-        mCreationTime = getSystemTimeInMs();
         mStopwatchActions = new ArrayList<StopwatchAction>();
         mIsStarted = false;
+        mIsWork = false;
     }
 
     /**
@@ -37,18 +37,26 @@ public class Stopwatch implements Parcelable {
     public Stopwatch(
             int id,
             String name,
-            long creationTime,
             ArrayList<StopwatchAction> StopwatchActions,
             boolean isStarted,
             long lastTime,
-            long duration) {
+            long rawDuration,
+            boolean isWork) {
         mId = id;
         mName = name;
-        mCreationTime = creationTime;
         mStopwatchActions = StopwatchActions;
         mIsStarted = isStarted;
         mLastTime = lastTime;
-        mDuration = duration;
+        mRawDuration = rawDuration;
+        mIsWork = isWork;
+    }
+
+    public void addAction(long timestamp, long duration, int type) {
+        addAction(new StopwatchAction(timestamp, duration, type));
+    }
+
+    public void addAction(StopwatchAction action) {
+        mStopwatchActions.add(action);
     }
 
     public boolean stop() {
@@ -57,8 +65,8 @@ public class Stopwatch implements Parcelable {
         int duration = 0;
         if (mIsStarted) {
             long time = getSystemTimeInMs();
-            mDuration += (int) (time - mLastTime);
-            mStopwatchActions.add(new StopwatchAction(time, mDuration, R.integer.action_type_stop));
+            mRawDuration += (int) (time - mLastTime);
+            addAction(new StopwatchAction(time, mRawDuration, R.integer.action_type_stop));
             mLastTime = time;
             mIsStarted = false;
             sucessful = true;
@@ -81,7 +89,7 @@ public class Stopwatch implements Parcelable {
 
         if (!mIsStarted) {
             long time = getSystemTimeInMs();
-            mStopwatchActions.add(new StopwatchAction(time, mDuration, R.integer.action_type_start));
+            mStopwatchActions.add(new StopwatchAction(time, mRawDuration, R.integer.action_type_start));
             mLastTime = time;
             mIsStarted = true;
             sucessful = true;
@@ -99,9 +107,8 @@ public class Stopwatch implements Parcelable {
     }
 
     public boolean reset() {
-        mCreationTime = -1;
         mLastTime = getSystemTimeInMs();
-        mDuration = 0;
+        mRawDuration = 0;
         mStopwatchActions.clear();
         mIsStarted = false;
         boolean sucessful = true;
@@ -121,6 +128,10 @@ public class Stopwatch implements Parcelable {
     	return mId;
     }
 
+    public Long getLastTime() {
+        return mLastTime;
+    }
+
     public String getName() {
         return mName;
     }
@@ -129,16 +140,16 @@ public class Stopwatch implements Parcelable {
         return mIsStarted;
     }
 
-    public long getCreationTime() {
-        return mCreationTime;
+    public boolean isWork() {
+        return mIsWork;
     }
 
-    public long getTimeSinceCreation() {
-        return getSystemTimeInMs() - mCreationTime;
+    public long getRawDuration() {
+        return mRawDuration;
     }
 
-    public long getDuration() {
-        return mDuration
+    public long getCurrentDuration() {
+        return mRawDuration
                 + (mIsStarted ? (getSystemTimeInMs() - mLastTime) : 0);
     }
 
@@ -170,32 +181,32 @@ public class Stopwatch implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(mId);
         out.writeString(mName);
-        out.writeLong(mCreationTime);
         out.writeList(mStopwatchActions);
         out.writeByte((byte) (mIsStarted ? 1 : 0));
         out.writeLong(mLastTime);
-        out.writeLong(mDuration);
+        out.writeLong(mRawDuration);
+        out.writeByte((byte) (mIsWork ? 1 : 0));
     }
 
     public static final Parcelable.Creator<Stopwatch> CREATOR = new Parcelable.Creator<Stopwatch>() {
         public Stopwatch createFromParcel(Parcel in) {
             int id = in.readInt();
             String name = in.readString();
-            long creationTime = in.readLong();
             ArrayList<StopwatchAction> StopwatchActions = new ArrayList<StopwatchAction>();
             in.readList(StopwatchActions, getClass().getClassLoader());
             boolean isStarted = (in.readByte() == 1);
             long lastTime = in.readLong();
-            long duration = in.readLong();
+            long rawDuration = in.readLong();
+            boolean isWork = (in.readByte() == 1);
 
             return new Stopwatch(
                     id,
                     name,
-                    creationTime,
                     StopwatchActions,
                     isStarted,
                     lastTime,
-                    duration);
+                    rawDuration,
+                    isWork);
         }
 
         public Stopwatch[] newArray(int size) {

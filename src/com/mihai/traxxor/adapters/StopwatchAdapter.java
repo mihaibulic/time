@@ -1,13 +1,10 @@
-package adapters;
+package com.mihai.traxxor.adapters;
 
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-import activities.GraphActivity;
-import activities.MainActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -22,6 +19,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.mihai.traxxor.R;
+import com.mihai.traxxor.activities.MainActivity;
 import com.mihai.traxxor.data.StatCalculator;
 import com.mihai.traxxor.data.Stopwatch;
 import com.mihai.traxxor.util.Util;
@@ -46,11 +44,11 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         sActivity = act;
     }
 
-    public int getCount() {
+    public synchronized int getCount() {
         return mStopwatches.size();
     }
 
-    public Stopwatch getItem(int position) {
+    public synchronized Stopwatch getItem(int position) {
         return mStopwatches.get(position);
     }
 
@@ -58,13 +56,13 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return getItem(position).getId();
     }
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public synchronized View getView(int position, View convertView, ViewGroup parent) {
         if (position < 0 || position >= mStopwatches.size()) {
             return null;
         }
         Stopwatch watch = mStopwatches.get(position);
         if (convertView == null || convertView.getId() != R.id.stopwatch) {
-            convertView = LayoutInflater.from(sActivity).inflate(R.layout.stopwatch, null);
+            convertView = LayoutInflater.from(sActivity).inflate(R.layout.stopwatch_for_main, null);
         }
 
         updateAll(convertView, watch);
@@ -83,11 +81,13 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
     // which interrupt long clicks.
     public boolean onTouch(View v, MotionEvent event) {
         switch (event.getAction()) {
-        case MotionEvent.ACTION_DOWN:
-            mClickedView = v;
+            case MotionEvent.ACTION_MOVE:
+            case MotionEvent.ACTION_DOWN:
+                mClickedView = v;
             break;
-        case MotionEvent.ACTION_UP:
-            mClickedView = null;
+            case MotionEvent.ACTION_CANCEL:
+            case MotionEvent.ACTION_UP:
+                mClickedView = null;
             break;
         }
         return false;
@@ -126,8 +126,10 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
                             toggleStopwatch(watch);
                         } else if (choices[which].equals(res.getString(R.string.stopwatch_action_reset))) {
                             resetStopwatch(watch);
-                        } else if (choices[which].equals(res.getString(R.string.stopwatch_action_graph))) {
-                            graphStopwatch(watch);
+                        } else if (choices[which].equals(res.getString(R.string.stopwatch_action_graph_discrete))) {
+                            Util.graphStopwatch(sActivity, watch, sActivity.getMasterStopwatch(), false);
+                        } else if (choices[which].equals(res.getString(R.string.stopwatch_action_graph_cumulative))) {
+                            Util.graphStopwatch(sActivity, watch, sActivity.getMasterStopwatch(), true);
                         } else if (choices[which].equals(res.getString(R.string.stopwatch_action_delete))) {
                             removeStopwatch(watch);
                         }
@@ -169,7 +171,15 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         mRun.set(false);
     }
 
-    public synchronized Stopwatch createStopwatch(boolean start, String name) {
+    public void setNextId(int next) {
+        mNextId = next;
+    }
+
+    public synchronized Stopwatch createStopwatch(String name) {
+        return createStopwatch(name, false);
+    }
+
+    public synchronized Stopwatch createStopwatch(String name, boolean start) {
         Stopwatch watch = null;
         if (!TextUtils.isEmpty(name)) {
             watch = new Stopwatch(mNextId++, name);
@@ -183,13 +193,23 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return watch;
     }
 
+
     public synchronized void addStopwatch(String name) {
         addStopwatch(new Stopwatch(mNextId++, name));
     }
 
     public synchronized void addStopwatch(Stopwatch watch) {
+        if (watch.getId() > mNextId) {
+            mNextId = watch.getId()+1;
+        }
         mStopwatches.add(watch);
         notifyDataSetChanged();
+    }
+
+    public synchronized void addStopwatches(ArrayList<Stopwatch> watches) {
+        for (Stopwatch watch : watches) {
+            addStopwatch(watch);
+        }
     }
 
     public synchronized void removeStopwatch(Stopwatch watch) {
@@ -200,10 +220,10 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
 
     public synchronized void removeStopwatch(int id) {
         boolean found = false;
-        for (Stopwatch watch : mStopwatches) {
-            if (watch.getId() == id) {
+        for (int i = mStopwatches.size()-1; i >= 0; --i) {
+            if (mStopwatches.get(i).getId() == id) {
                 found = true;
-                mStopwatches.remove(watch);
+                mStopwatches.remove(i);
             }
         }
 
@@ -240,20 +260,10 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         }
     }
 
-    public synchronized void resetStopwatch(Stopwatch watch) {
+    public void resetStopwatch(Stopwatch watch) {
         if (watch.reset()) {
             notifyDataSetChanged();
         }
-    }
-
-    public synchronized void graphStopwatch(Stopwatch watch) {
-        Intent graphIntent = new Intent(sActivity, GraphActivity.class);
-        double[][] data = StatCalculator.calculateAverages(
-                sActivity.getMasterStopwatch(), watch);
-        graphIntent.putExtra(String.valueOf(R.integer.graph_title), watch.getName());
-        graphIntent.putExtra(String.valueOf(R.integer.graph_raw_x_data), data[0]);
-        graphIntent.putExtra(String.valueOf(R.integer.graph_raw_y_data), data[1]);
-        sActivity.startActivity(graphIntent);
     }
 
     public synchronized void resetAllStopwatches() {

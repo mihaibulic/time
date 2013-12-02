@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import com.mihai.traxxor.R;
 
 public class StatCalculator {
+    public static final int GRAPH_STEPS = 100;
+    public static final double GRAPH_STEP_SIZE = 30*60*1000.0;
 
     public static String calculateActivePercentString(Stopwatch master, Stopwatch slave) {
         double percent = calculateActivePercentage(master, slave);
@@ -12,40 +14,83 @@ public class StatCalculator {
     }
 
     public static double calculateActivePercentage(Stopwatch master, Stopwatch slave) {
-        return (double) slave.getDuration() / master.getDuration();
+        return (double) slave.getCurrentDuration() / master.getCurrentDuration();
     }
 
     /**
      * @return array of active percentages (cumulative)
      */
-    public static double[][] calculateAverages(Stopwatch master, Stopwatch slave) {
+    public static double[][] calculateAverages(Stopwatch master, Stopwatch slave, boolean isCummulative) {
+        int steps = -1;
+        double stepSize = -1;
+
+        if (isCummulative) {
+            steps = GRAPH_STEPS;
+        } else {
+            stepSize = GRAPH_STEP_SIZE;
+        }
+
+        return calculateAverages(master, slave, isCummulative, steps, stepSize);
+    }
+
+    /**
+     * @return array of active percentages (cumulative)
+     */
+    public static double[][] calculateAverages(Stopwatch master, Stopwatch slave, boolean isCummulative, double stepSize) {
+        return calculateAverages(master, slave, isCummulative, -1, stepSize);
+    }
+
+    /**
+     * @return array of active percentages (cumulative)
+     */
+    public static double[][] calculateAverages(Stopwatch master, Stopwatch slave, boolean isCummulative, int steps) {
+        return calculateAverages(master, slave, isCummulative, steps, -1.0);
+    }
+
+    /**
+     * @return array of active percentages (cumulative)
+     */
+    public static double[][] calculateAverages(Stopwatch master, Stopwatch slave,
+            boolean isCummulative, int steps, double stepSize) {
         ArrayList<StopwatchAction> masterActions = master.getStopwatchActions();
         ArrayList<StopwatchAction> slaveActions = slave.getStopwatchActions();
 
-        if (masterActions.size() == 0 || slaveActions.size() == 0) {
-            return new double[][] { { 0.0 }, { 0.0 } };
+        if (masterActions == null || slaveActions == null || masterActions.size() == 0 || slaveActions.size() == 0) {
+            android.util.Log.v("bulic", "da fuq?");
+            return null;
         }
 
         // The extra slot is for the current result since this may not be reflected
         // in the StopwatchActions if either stopwatch is still active.
         boolean extra = (slave.isStarted() || master.isStarted());
-        double[][] data = new double[2][masterActions.size() + slaveActions.size() + (extra ? 1 : 0)];
+        long first = Math.min(masterActions.get(0).getTimestamp(),
+                slaveActions.get(0).getTimestamp());
+        long last = extra ? Stopwatch.getSystemTimeInMs() :
+                Math.max(masterActions.get(masterActions.size() - 1).getTimestamp(),
+                        slaveActions.get(slaveActions.size() - 1).getTimestamp());
+        long step = first;
 
-        ActionStepper masterStepper = new ActionStepper(masterActions);
-        ActionStepper slaveStepper = new ActionStepper(slaveActions);
-        final int size = masterActions.size() + slaveActions.size();
+        if (steps < 0 && stepSize > 0) {
+            steps = (int) Math.ceil((last - first) / stepSize);
+        } else if (stepSize < 0 && steps > 0) {
+            stepSize = (last - first) / steps;
+        } else {
+            android.util.Log.v("bulic", "da fuq2?");
+            return null;
+        }
+
+        double[][] data = new double[2][steps];
+
+        ActionStepper masterStepper = new ActionStepper(masterActions, isCummulative);
+        ActionStepper slaveStepper = new ActionStepper(slaveActions, isCummulative);
+        final int size = data[0].length;
         for (int d = 0; d < size; d++) {
-            long step = getNext(masterStepper, slaveStepper, d == 0);
+            step += stepSize;
             data[0][d] = step;
             data[1][d] = getRatio(
                     masterStepper.getDurationAt(step),
                     slaveStepper.getDurationAt(step),
                     (matched == slaveStepper));
-        }
-
-        if (extra) {
-            data[0][data[0].length - 1] = Stopwatch.getSystemTimeInMs();
-            data[1][data[1].length - 1] = calculateActivePercentage(master, slave);
         }
 
         return data;
@@ -55,9 +100,12 @@ public class StatCalculator {
     private static class ActionStepper {
         ArrayList<StopwatchAction> actions;
         int index = 0;
+        boolean isCumulative = true;
+        long lastDuration = 0;
 
-        public ActionStepper(ArrayList<StopwatchAction> actions) {
+        public ActionStepper(ArrayList<StopwatchAction> actions, boolean isCumulative) {
             this.actions = actions;
+            this.isCumulative = isCumulative;
         }
 
         public long getDurationAt(long timestamp) {
@@ -76,6 +124,13 @@ public class StatCalculator {
                         actions.get(index).getType() == R.integer.action_type_start) {
                     duration += timestamp - actions.get(index).getTimestamp();
                 }
+            }
+
+            if (!isCumulative) {
+                android.util.Log.v("bulic", "ld " + lastDuration + " | d " + duration);
+                long original = duration;
+                duration -= lastDuration;
+                lastDuration = original;
             }
 
             return duration;

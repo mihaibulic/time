@@ -1,15 +1,14 @@
-package activities;
+package com.mihai.traxxor.activities;
 
 import java.util.ArrayList;
 
-import adapters.StopwatchAdapter;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.os.Parcelable;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,43 +19,58 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mihai.traxxor.R;
+import com.mihai.traxxor.adapters.StopwatchAdapter;
+import com.mihai.traxxor.data.BundleHelper;
+import com.mihai.traxxor.data.DbHelper;
 import com.mihai.traxxor.data.Stopwatch;
 import com.mihai.traxxor.util.Util;
 
+
 public class MainActivity extends Activity implements OnClickListener {
-    public static final String KEY_MASTER_STOPWATCH = "key_master_stopwatch";
-    public static final String KEY_STOPWATCH_LIST = "key_stopwatch_list";
     public static final int ANIMATION_DURATION = 100; // MS
+    public static final int MASTER_ID = -1;
 
     private static int sMasterOnColor;
     private static int sMasterOffColor;
 
     private Stopwatch mMasterWatch;
     private StopwatchAdapter mAdapter;
+    private DbHelper mDbHelper;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mDbHelper = new DbHelper(this);
         initWatches(savedInstanceState);
         initActionBar();
 
         setContentView(R.layout.main_activity);
-        ((GridView) findViewById(R.id.stopwatch_grid)).setAdapter(mAdapter);
+        GridView grid = ((GridView) findViewById(R.id.stopwatch_grid));
+        grid.setAdapter(mAdapter);
+        grid.setEmptyView(findViewById(R.id.empty_view));
 
         updateMaster();
         mAdapter.notifyDataSetChanged();
+
     }
 
     @Override
     public void onSaveInstanceState(Bundle onInstanceState) {
         super.onSaveInstanceState(onInstanceState);
-        onInstanceState.putParcelable(KEY_MASTER_STOPWATCH, getMasterStopwatch());
-        onInstanceState.putParcelableArrayList(KEY_STOPWATCH_LIST, mAdapter.getStopwatches());
+        BundleHelper.writeStopwatchesToBundle(onInstanceState, mAdapter.getStopwatches(), mMasterWatch);
+    }
+
+    @Override
+    public void onStop() {
+        mDbHelper.writeToTable(mAdapter.getStopwatches(), mMasterWatch, DbHelper.TABLE_TYPE_TEMP);
+        super.onStop();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         addMenutItem(menu, R.string.action_manage);
+        addMenutItem(menu, R.string.action_graph_discrete);
+        addMenutItem(menu, R.string.action_graph_cumulative);
         addMenutItem(menu, R.string.action_day_toggle);
         addMenutItem(menu, R.string.action_day_advance);
         addMenutItem(menu, R.string.action_day_reset);
@@ -76,17 +90,27 @@ public class MainActivity extends Activity implements OnClickListener {
         boolean selected = true;
 
         switch (getMenuItemResId(item)) {
+            case R.string.action_graph_discrete:
+                Util.graphStopwatches(this, mAdapter.getStopwatches(), mMasterWatch, false);
+                break;
+            case R.string.action_graph_cumulative:
+                Util.graphStopwatches(this, mAdapter.getStopwatches(), mMasterWatch, true);
+                break;
+            case R.string.action_manage:
+                startActivityForResult(getManagerIntent(), R.integer.manager_request_code);
+                break;
             case R.string.action_day_toggle:
                 toggleMaster();
                 break;
             case R.string.action_day_advance:
+                if (mMasterWatch.isStarted()) {
+                    toggleMaster();
+                }
+                mDbHelper.writeToTable(mAdapter.getStopwatches(), mMasterWatch, DbHelper.TABLE_TYPE_PERM);
                 resetMaster();
                 break;
             case R.string.action_day_reset:
                 resetMaster();
-                break;
-            case R.string.action_manage:
-                startActivityForResult(getManagerIntent(), R.integer.manager_request_code);
                 break;
             default:
                 selected = false;
@@ -99,12 +123,12 @@ public class MainActivity extends Activity implements OnClickListener {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK && requestCode == R.integer.manager_request_code) {
-            ArrayList<String> names = data.getStringArrayListExtra(ManagerActivity.EXTRA_STOPWATCHES_TO_ADD);
-            ArrayList<Integer> ids = data.getIntegerArrayListExtra(ManagerActivity.EXTRA_STOPWATCHES_TO_DELETE);
+            ArrayList<String> names = data.getStringArrayListExtra(String.valueOf(R.integer.extra_stopwatches_to_add));
+            ArrayList<Integer> ids = data.getIntegerArrayListExtra(String.valueOf(R.integer.extra_stopwatches_to_delete));
 
             if (names != null) {
                 for (String name : names) {
-                    mAdapter.createStopwatch(false, name);
+                    mAdapter.createStopwatch(name);
                 }
             }
 
@@ -185,28 +209,22 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     /**
-     * tries to restore from the savedInstanceState, otherwise initializes what needs to be
+     * tries to restore from the savedInstanceState, otherwise queries the temp tables in the DB
      */
     private void initWatches(Bundle savedInstanceState) {
         mAdapter = new StopwatchAdapter(this);
-        Parcelable master = null;
+        mMasterWatch = null;
         if (savedInstanceState != null) {
-            master = savedInstanceState.getParcelable(KEY_MASTER_STOPWATCH);
-            ArrayList<Parcelable> watches = savedInstanceState.getParcelableArrayList(KEY_STOPWATCH_LIST);
-            if (watches != null) {
-                mAdapter.clearStopwatches();
-                for (Parcelable watch : watches) {
-                    if (watch instanceof Stopwatch) {
-                        mAdapter.addStopwatch((Stopwatch) watch);
-                    }
-                }
-            }
+            mAdapter.addStopwatches(BundleHelper.readStopwatchesFromBundle(savedInstanceState, mMasterWatch));
+        } else {
+            mAdapter.setNextId(mDbHelper.getNextStopwatchId());
+            Pair<Stopwatch, ArrayList<Stopwatch>> pair = mDbHelper.readFromTable(Util.getToday(), DbHelper.TABLE_TYPE_TEMP);
+            mMasterWatch = pair.first;
+            mAdapter.addStopwatches(pair.second);
         }
 
-        if (master instanceof Stopwatch) {
-            mMasterWatch = (Stopwatch) master;
-        } else if (mMasterWatch == null) {
-            mMasterWatch = new Stopwatch(-1, getString(R.string.master_stopwatch_description));
+        if (mMasterWatch == null) {
+            mMasterWatch = new Stopwatch(MASTER_ID, getString(R.string.master_stopwatch_description));
         }
 
         if (mMasterWatch.isStarted()) {
@@ -226,8 +244,8 @@ public class MainActivity extends Activity implements OnClickListener {
             stopwatchNames[i] = mAdapter.getItem(i).getName();
             stopwatchIds[i] = mAdapter.getItem(i).getId();
         }
-        intent.putExtra(ManagerActivity.EXTRA_STOPWATCH_NAMES, stopwatchNames);
-        intent.putExtra(ManagerActivity.EXTRA_STOPWATCH_IDS, stopwatchIds);
+        intent.putExtra(String.valueOf(R.integer.extra_stopwatch_names), stopwatchNames);
+        intent.putExtra(String.valueOf(R.integer.extra_stopwatch_ids), stopwatchIds);
 
         return intent;
     }
