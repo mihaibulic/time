@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/master_stopwatch_off"
+    android:orientation="vertical"
+    android:keepScreenOn="true" >
+    <GridView
+        android:id="@+id/stopwatch_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/large_padding"
+        android:horizontalSpacing="@dimen/large_padding"
+        android:verticalSpacing="@dimen/large_padding"
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingRight="@dimen/large_padding"
+        android:paddingTop="@dimen/action_bar_height"
+        android:numColumns="@integer/stopwatch_grid_num_columns"
+        android:clipToPadding="false"
+        android:gravity="center" >
+    </GridView>
+    <TextView
+        android:id="@+id/empty_view" 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/large_padding"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        android:text="@string/main_empty_view"
+        />
+</LinearLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <dimen name="master_text">14sp</dimen>
+    <dimen name="time_text">28sp</dimen>
+    <dimen name="aux_text">18sp</dimen>
+
+    <dimen name="small_padding">2dp</dimen>
+    <dimen name="large_padding">8dp</dimen>
+
+    <dimen name="action_bar_height_port">70dp</dimen>
+    <dimen name="action_bar_height_land">50dp</dimen>
+
+</resources>

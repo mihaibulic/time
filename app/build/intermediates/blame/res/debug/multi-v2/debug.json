@@ -1,0 +1,1656 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-mk_values-mk.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-mk/values-mk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ko_values-ko.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ko/values-ko.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-hu_values-hu.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-hu/values-hu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-is_values-is.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-is/values-is.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-af_values-af.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-af/values-af.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-large-port-v4_values-large-port-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-large-port/integers.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-gl_values-gl.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-gl/values-gl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-lv_values-lv.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-lv/values-lv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-az_values-az.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-az/values-az.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-mr_values-mr.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-mr/values-mr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-km_values-km.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-km/values-km.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-gu_values-gu.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-gu/values-gu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-fr_values-fr.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-fr/values-fr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-xlarge-port-v4_values-xlarge-port-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-xlarge-port/integers.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-sq_values-sq.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-sq/values-sq.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-zh-rCN_values-zh-rCN.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-zh-rCN/values-zh-rCN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-sl_values-sl.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-sl/values-sl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-v21_values-v21.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,5,8,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,223,386,554",
+                        "endLines": "4,7,10,13",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "218,381,549,716"
+                    },
+                    "to": {
+                        "startLines": "8,11,15,19",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "596,764,1053,1349",
+                        "endLines": "10,13,17,21",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "759,922,1216,1511"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-v21/values-v21.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,13",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,354,470,596,722,850,1022",
+                        "endLines": "2,3,4,5,6,7,8,9,12,17",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,465,591,717,845,1017,1355"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,14,18,22,25",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,223,290,354,470,927,1221,1516,1688",
+                        "endLines": "2,3,4,5,6,7,14,18,24,29",
+                        "endColumns": "103,63,66,63,115,125,125,127,12,12",
+                        "endOffsets": "154,218,285,349,465,591,1048,1344,1683,2021"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ja_values-ja.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ja/values-ja.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-vi_values-vi.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-vi/values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-large-land-v4_values-large-land-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-large-land/integers.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-xlarge-land-v4_values-xlarge-land-v4.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-xlarge-land/integers.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-sw_values-sw.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-sw/values-sw.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-in_values-in.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-in/values-in.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-pt-rPT_values-pt-rPT.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-pt-rPT/values-pt-rPT.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-b+sr+Latn_values-b+sr+Latn.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-b+sr+Latn/values-b+sr+Latn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ka_values-ka.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ka/values-ka.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-my_values-my.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-my/values-my.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-fr-rCA_values-fr-rCA.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-fr-rCA/values-fr-rCA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-pa_values-pa.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-pa/values-pa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-fi_values-fi.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-fi/values-fi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-en-rGB_values-en-rGB.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-en-rGB/values-en-rGB.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-en-rXC_values-en-rXC.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-en-rXC/values-en-rXC.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "202",
+                        "endOffsets": "253"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-tl_values-tl.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-tl/values-tl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ar_values-ar.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ar/values-ar.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-uz_values-uz.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-uz/values-uz.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-lo_values-lo.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-lo/values-lo.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-lt_values-lt.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-lt/values-lt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-am_values-am.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-am/values-am.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-eu_values-eu.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-eu/values-eu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ru_values-ru.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ru/values-ru.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-or_values-or.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-or/values-or.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-v16_values-v16.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-v16/values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-sr_values-sr.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-sr/values-sr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ky_values-ky.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ky/values-ky.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-bn_values-bn.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-bn/values-bn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-zh-rHK_values-zh-rHK.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-zh-rHK/values-zh-rHK.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-si_values-si.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-si/values-si.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values_values.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/fd1c5ea8fee9ed9f06804cc7e0e466b5/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,102,3,13",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,5935,116,724",
+                        "endLines": "2,104,12,101",
+                        "endColumns": "60,12,24,24",
+                        "endOffsets": "111,6075,719,5930"
+                    },
+                    "to": {
+                        "startLines": "9,151,161,171",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "398,8727,9170,9778",
+                        "endLines": "9,153,170,259",
+                        "endColumns": "60,12,24,24",
+                        "endOffsets": "454,8867,9773,14984"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,144,215,288,341,394,447,500,560,626,748,809,875",
+                        "endColumns": "88,70,72,52,52,52,52,59,65,121,60,65,66",
+                        "endOffsets": "139,210,283,336,389,442,495,555,621,743,804,870,937"
+                    },
+                    "to": {
+                        "startLines": "19,20,22,55,56,57,58,72,131,133,134,139,141",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "941,1030,1159,3198,3251,3304,3357,4040,7400,7576,7698,7960,8155",
+                        "endColumns": "88,70,72,52,52,52,52,59,65,121,60,65,66",
+                        "endOffsets": "1025,1096,1227,3246,3299,3352,3405,4095,7461,7693,7754,8021,8217"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values/dimens.xml",
+                    "from": {
+                        "startLines": "9,8,3,6,1,5,2",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "284,230,100,185,16,141,59",
+                        "endColumns": "53,53,39,43,42,43,40",
+                        "endOffsets": "333,279,135,224,54,180,95"
+                    },
+                    "to": {
+                        "startLines": "27,28,29,37,38,54,59",
+                        "startColumns": "4,4,4,4,4,4,4",
+                        "startOffsets": "1453,1507,1561,2089,2133,3154,3410",
+                        "endColumns": "53,53,39,43,42,43,40",
+                        "endOffsets": "1502,1556,1596,2128,2171,3193,3446"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values/colors.xml",
+                    "from": {
+                        "startLines": "12,10,13,7,8,2,3,5,6,9",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "449,399,507,268,310,55,112,169,219,351",
+                        "endColumns": "57,48,46,41,40,56,55,49,48,47",
+                        "endOffsets": "502,443,549,305,346,107,163,214,263,394"
+                    },
+                    "to": {
+                        "startLines": "10,11,12,13,14,15,16,24,25,26",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "459,517,566,613,655,696,753,1306,1356,1405",
+                        "endColumns": "57,48,46,41,40,56,55,49,48,47",
+                        "endOffsets": "512,561,608,650,691,748,804,1351,1400,1448"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values/integers.xml",
+                    "from": {
+                        "startLines": "26,27,32,31,12,13,14,15,7,9,8,10,11,4,5,29,2,18,17,24,22,23,21,20",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "1020,1070,1238,1178,493,548,603,658,220,324,270,376,433,115,168,1120,55,757,716,978,891,935,848,804",
+                        "endColumns": "49,48,56,59,54,54,54,56,49,51,53,56,59,52,50,52,58,45,40,40,43,42,42,43",
+                        "endOffsets": "1065,1114,1290,1233,543,598,653,710,265,371,319,428,488,163,214,1168,109,798,752,1014,930,973,886,843"
+                    },
+                    "to": {
+                        "startLines": "70,71,73,74,75,76,77,78,79,80,81,82,83,84,85,86,88,89,90,91,92,93,94,95",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "3941,3991,4100,4157,4217,4272,4327,4382,4439,4489,4541,4595,4652,4712,4765,4816,4939,4998,5044,5085,5126,5170,5213,5256",
+                        "endColumns": "49,48,56,59,54,54,54,56,49,51,53,56,59,52,50,52,58,45,40,40,43,42,42,43",
+                        "endOffsets": "3986,4035,4152,4212,4267,4322,4377,4434,4484,4536,4590,4647,4707,4760,4811,4864,4993,5039,5080,5121,5165,5208,5251,5295"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "14,12,11,10,15,9,8,7,26,2,29,4,5,31,25,28,23,21,18,17,20,19,24",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "649,592,537,476,692,395,318,263,1259,55,1354,101,187,1397,1185,1320,1076,1016,819,742,959,900,1124",
+                        "endColumns": "42,55,54,60,48,80,76,54,59,44,41,85,74,61,73,33,47,58,80,76,56,58,60",
+                        "endOffsets": "687,643,587,532,736,471,390,313,1314,95,1391,182,257,1454,1254,1349,1119,1070,895,814,1011,954,1180"
+                    },
+                    "to": {
+                        "startLines": "96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,114,115,116,117,118,119",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "5300,5343,5399,5454,5515,5564,5645,5722,5777,5837,5882,5924,6010,6085,6147,6221,6255,6374,6433,6514,6591,6648,6707",
+                        "endColumns": "42,55,54,60,48,80,76,54,59,44,41,85,74,61,73,33,47,58,80,76,56,58,60",
+                        "endOffsets": "5338,5394,5449,5510,5559,5640,5717,5772,5832,5877,5919,6005,6080,6142,6216,6250,6298,6428,6509,6586,6643,6702,6763"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values/arrays.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "9",
+                        "endColumns": "12",
+                        "endOffsets": "401"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "393"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values/styles.xml",
+                    "from": {
+                        "startLines": "12,2,16,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "479,55,622,228",
+                        "endLines": "14,4,19,8",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "616,222,820,386"
+                    },
+                    "to": {
+                        "startLines": "120,123,142,146",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "6768,6910,8222,8425",
+                        "endLines": "122,125,145,148",
+                        "endColumns": "12,12,12,12",
+                        "endOffsets": "6905,7077,8420,8583"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,171,172,176,177,178,6,13,56,88,125",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,187,245,7725,7795,7863,7935,8005,8066,8140,8213,8274,8335,8397,8461,8523,8584,8652,8752,8812,8878,8951,9020,9077,9129,9191,9263,9339,9374,9409,9459,9520,9577,9611,9646,9681,9751,9822,9939,10140,10250,10451,10580,10652,319,617,3523,5588,7348",
+                        "endLines": "2,3,4,5,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,170,171,175,176,177,178,12,55,87,124,131",
+                        "endColumns": "68,62,57,73,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,34,34,49,60,56,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24",
+                        "endOffsets": "119,182,240,314,7790,7858,7930,8000,8061,8135,8208,8269,8330,8392,8456,8518,8579,8647,8747,8807,8873,8946,9015,9072,9124,9186,9258,9334,9369,9404,9454,9515,9572,9606,9641,9676,9746,9817,9934,10135,10245,10446,10575,10647,10714,612,3518,5583,7343,7720"
+                    },
+                    "to": {
+                        "startLines": "17,18,21,23,30,31,32,33,34,35,36,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,60,61,62,63,64,65,66,67,68,69,87,113,126,127,132,135,140,149,150,154,260,303,335,372",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "809,878,1101,1232,1601,1671,1739,1811,1881,1942,2016,2176,2237,2298,2360,2424,2486,2547,2615,2715,2775,2841,2914,2983,3040,3092,3451,3523,3599,3634,3669,3719,3780,3837,3871,3906,4869,6303,7082,7199,7466,7759,8026,8588,8660,8872,14989,17895,19960,21720",
+                        "endLines": "17,18,21,23,30,31,32,33,34,35,36,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,60,61,62,63,64,65,66,67,68,69,87,113,126,130,132,138,140,149,150,160,302,334,371,378",
+                        "endColumns": "68,62,57,73,69,67,71,69,60,73,72,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,34,34,49,60,56,33,34,34,69,70,116,12,109,12,128,71,66,24,24,24,24,24",
+                        "endOffsets": "873,936,1154,1301,1666,1734,1806,1876,1937,2011,2084,2232,2293,2355,2419,2481,2542,2610,2710,2770,2836,2909,2978,3035,3087,3149,3518,3594,3629,3664,3714,3775,3832,3866,3901,3936,4934,6369,7194,7395,7571,7955,8150,8655,8722,9165,17890,19955,21715,22092"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-es-rUS_values-es-rUS.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-es-rUS/values-es-rUS.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ml_values-ml.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ml/values-ml.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-es_values-es.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-es/values-es.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-en-rCA_values-en-rCA.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-en-rCA/values-en-rCA.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-tr_values-tr.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-tr/values-tr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-kn_values-kn.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-kn/values-kn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-hi_values-hi.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-hi/values-hi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-sk_values-sk.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-sk/values-sk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-zh-rTW_values-zh-rTW.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-zh-rTW/values-zh-rTW.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-cs_values-cs.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-cs/values-cs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ca_values-ca.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ca/values-ca.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-it_values-it.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-it/values-it.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-te_values-te.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-te/values-te.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-en-rIN_values-en-rIN.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-en-rIN/values-en-rIN.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-port_values-port.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-port/dimens.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "48",
+                        "endOffsets": "60"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-port/integers.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "104",
+                        "endColumns": "58",
+                        "endOffsets": "158"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-da_values-da.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-da/values-da.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-pt_values-pt.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-pt/values-pt.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-el_values-el.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-el/values-el.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-de_values-de.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-de/values-de.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-fa_values-fa.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-fa/values-fa.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-v24_values-v24.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/values-v24/values-v24.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,121,182,248",
+                        "endColumns": "65,60,65,66",
+                        "endOffsets": "116,177,243,310"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ro_values-ro.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ro/values-ro.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ta_values-ta.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ta/values-ta.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-hy_values-hy.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-hy/values-hy.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ur_values-ur.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ur/values-ur.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-land_values-land.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-land/integers.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "104",
+                        "endColumns": "58",
+                        "endOffsets": "158"
+                    }
+                },
+                {
+                    "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-land/dimens.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "48",
+                        "endOffsets": "60"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "48",
+                        "endOffsets": "99"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ne_values-ne.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ne/values-ne.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-uk_values-uk.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-uk/values-uk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-en-rAU_values-en-rAU.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-en-rAU/values-en-rAU.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-bg_values-bg.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-bg/values-bg.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-bs_values-bs.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-bs/values-bs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-kk_values-kk.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-kk/values-kk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-sv_values-sv.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-sv/values-sv.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-zu_values-zu.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-zu/values-zu.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-pl_values-pl.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-pl/values-pl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-nb_values-nb.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-nb/values-nb.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-as_values-as.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-as/values-as.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-nl_values-nl.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-nl/values-nl.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-ms_values-ms.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-ms/values-ms.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-et_values-et.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-et/values-et.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-iw_values-iw.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-iw/values-iw.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-pt-rBR_values-pt-rBR.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-pt-rBR/values-pt-rBR.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-th_values-th.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-th/values-th.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-be_values-be.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-be/values-be.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-mn_values-mn.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-mn/values-mn.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/values-hr_values-hr.arsc.flat",
+            "map": [
+                {
+                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/values-hr/values-hr.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

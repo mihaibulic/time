@@ -1,0 +1,156 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+MERGED from [com.android.support:support-v4:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/223bae06ef78417db7d0d8fe12854953/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/9349b0c8755fd52f12f47a9e3286d53f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/6624dc8c84157f76e3e13177fbc8923c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/208bd5c784561c550d7bbea3db82b4ff/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/8035a86c2545370afbc3a9618830aec1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/247aa6f2ef5f22a49b3acc46f445f7c1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/fd1c5ea8fee9ed9f06804cc7e0e466b5/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/d73f968f81e5164b691e5e4f786209c0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/86331a61c330cb682581c3402e8a0f1b/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/d851a92eb983a341271a5de92410448d/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/5083240070893e49cfe4d20bd92ba77a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/391a29258b081d185ae76d49dbbfd5c7/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/02b02b610c655842102d265e637c7ea2/AndroidManifest.xml:17:1-25:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/fd0d45b8d5a97a5c78fa0cf76c61b3b4/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/4aadc3ad104214402ddfbd158a2f7c7e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/d9e4a666d1b0b26316421ed347996c69/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/472caed775f840766be8625d278550d6/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/9b8165d527b6eb2c4dcb12611a14f063/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/1d50afad8e13eaa26563ae6a94b1c12b/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b1297b651d9d5bc777670e9127ed3f35/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2e7e0164c94cae46e7e2e7af369badb9/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/729259b5b4707dbef2dd0b20ff5422a9/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/11654da2e0ea191223a9b6259e4f779a/AndroidManifest.xml:17:1-22:12
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:1-28:12
+	package
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:3:5-32
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:5:5-30
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:4:5-28
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+application
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:7:5-26:19
+MERGED from [com.android.support:support-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/02b02b610c655842102d265e637c7ea2/AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/02b02b610c655842102d265e637c7ea2/AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/AndroidManifest.xml:22:18-91
+	android:label
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:10:9-41
+	android:icon
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:9:9-45
+	android:allowBackup
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:8:9-35
+	android:theme
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:11:9-45
+activity#com.mihai.traxxor.activities.MainActivity
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:13:9-22:20
+	android:label
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:16:13-45
+	android:configChanges
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:15:13-62
+	android:theme
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:17:13-46
+	android:name
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:14:13-69
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:18:13-21:29
+action#android.intent.action.MAIN
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:19:17-69
+	android:name
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:19:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:20:17-77
+	android:name
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:20:27-74
+activity#com.mihai.traxxor.activities.ManagerActivity
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:24:9-81
+	android:name
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:24:19-78
+activity#com.mihai.traxxor.activities.GraphActivity
+ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:25:9-79
+	android:name
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml:25:19-76
+uses-sdk
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+MERGED from [com.android.support:support-v4:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/223bae06ef78417db7d0d8fe12854953/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-v4-28.0.0.aar/223bae06ef78417db7d0d8fe12854953/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/9349b0c8755fd52f12f47a9e3286d53f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-fragment-28.0.0.aar/9349b0c8755fd52f12f47a9e3286d53f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/6624dc8c84157f76e3e13177fbc8923c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-core-ui-28.0.0.aar/6624dc8c84157f76e3e13177fbc8923c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/208bd5c784561c550d7bbea3db82b4ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-core-utils-28.0.0.aar/208bd5c784561c550d7bbea3db82b4ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/8035a86c2545370afbc3a9618830aec1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/loader-28.0.0.aar/8035a86c2545370afbc3a9618830aec1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/247aa6f2ef5f22a49b3acc46f445f7c1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/viewpager-28.0.0.aar/247aa6f2ef5f22a49b3acc46f445f7c1/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/fd1c5ea8fee9ed9f06804cc7e0e466b5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/coordinatorlayout-28.0.0.aar/fd1c5ea8fee9ed9f06804cc7e0e466b5/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/d73f968f81e5164b691e5e4f786209c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/drawerlayout-28.0.0.aar/d73f968f81e5164b691e5e4f786209c0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/86331a61c330cb682581c3402e8a0f1b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/slidingpanelayout-28.0.0.aar/86331a61c330cb682581c3402e8a0f1b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/d851a92eb983a341271a5de92410448d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/customview-28.0.0.aar/d851a92eb983a341271a5de92410448d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/5083240070893e49cfe4d20bd92ba77a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/swiperefreshlayout-28.0.0.aar/5083240070893e49cfe4d20bd92ba77a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/391a29258b081d185ae76d49dbbfd5c7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/asynclayoutinflater-28.0.0.aar/391a29258b081d185ae76d49dbbfd5c7/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/02b02b610c655842102d265e637c7ea2/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/versionedparcelable-28.0.0.aar/02b02b610c655842102d265e637c7ea2/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/fd0d45b8d5a97a5c78fa0cf76c61b3b4/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/fd0d45b8d5a97a5c78fa0cf76c61b3b4/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/4aadc3ad104214402ddfbd158a2f7c7e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/documentfile-28.0.0.aar/4aadc3ad104214402ddfbd158a2f7c7e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/d9e4a666d1b0b26316421ed347996c69/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/localbroadcastmanager-28.0.0.aar/d9e4a666d1b0b26316421ed347996c69/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/472caed775f840766be8625d278550d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/472caed775f840766be8625d278550d6/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/9b8165d527b6eb2c4dcb12611a14f063/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/9b8165d527b6eb2c4dcb12611a14f063/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/1d50afad8e13eaa26563ae6a94b1c12b/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] /Users/mihai/.gradle/caches/transforms-1/files-1.1/cursoradapter-28.0.0.aar/1d50afad8e13eaa26563ae6a94b1c12b/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b1297b651d9d5bc777670e9127ed3f35/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/b1297b651d9d5bc777670e9127ed3f35/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2e7e0164c94cae46e7e2e7af369badb9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/livedata-1.1.1.aar/2e7e0164c94cae46e7e2e7af369badb9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/729259b5b4707dbef2dd0b20ff5422a9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.1.aar/729259b5b4707dbef2dd0b20ff5422a9/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/11654da2e0ea191223a9b6259e4f779a/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] /Users/mihai/.gradle/caches/transforms-1/files-1.1/runtime-1.1.1.aar/11654da2e0ea191223a9b6259e4f779a/AndroidManifest.xml:20:5-44
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		ADDED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/mihai/dev/traxxor/app/src/main/AndroidManifest.xml

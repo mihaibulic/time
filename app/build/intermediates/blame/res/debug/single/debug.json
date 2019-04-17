@@ -1,0 +1,218 @@
+[
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-xhdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_bg.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable/bg.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-mdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-hdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_launcher.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_action_bar_logo.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-xhdpi/ic_action_bar_logo.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_notification_tile_bg.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable/notification_tile_bg.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_media.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_media.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-hdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_graph.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout/graph.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_toggle_day.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-hdpi/ic_toggle_day.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_part_time.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/layout/notification_template_part_time.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout-land_action_bar.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout-land/action_bar.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_launcher.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout-v21_notification_template_custom_big.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_stopwatch_for_main.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout/stopwatch_for_main.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_action_bar_logo.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-xxhdpi/ic_action_bar_logo.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-xhdpi-v4/notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-v21_notification_action_background.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-v21/notification_action_background.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_ic_play_black_24dp.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable/ic_play_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-hdpi-v4/notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_big_media.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_big_media.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_ic_add_stopwatch_black_24dp.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable/ic_add_stopwatch_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_ic_settings_black_24dp.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable/ic_settings_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_notification_bg_low.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable/notification_bg_low.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_stopwatch_for_manager.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout/stopwatch_for_manager.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_notification_bg.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable/notification_bg.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_notification_icon_background.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_narrow.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_big_media_narrow.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_main_activity.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout/main_activity.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-hdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-mdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout-v21_notification_action_tombstone.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout-v21_notification_template_icon_group.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-xhdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-hdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_media_cancel_action.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_media_cancel_action.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-mdpi-v4/notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_media_action.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_media_action.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout-port_action_bar.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout-port/action_bar.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_narrow_custom.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_big_media_narrow_custom.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_normal.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-mdpi-v4/notification_bg_normal.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_lines_media.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_lines_media.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_media_custom.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_media_custom.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_ic_delete_stopwatch_black_24dp.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable/ic_delete_stopwatch_black_24dp.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_part_chronometer.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/layout/notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout-v21_notification_action.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_manager_activity.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/layout/manager_activity.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/layout_notification_template_big_media_custom.xml.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-media-compat-28.0.0.aar/38dd5612cb1efcf8b1b0098386b9c4ba/res/layout/notification_template_big_media_custom.xml"
+    },
+    {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/0652b3c1d896011458279493bab976f0/res/drawable-mdpi-v4/notification_bg_low_pressed.9.png"
+    }
+]
