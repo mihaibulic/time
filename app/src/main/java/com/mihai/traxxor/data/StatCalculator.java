@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import com.mihai.traxxor.R;
 
 public class StatCalculator {
-    public static final int GRAPH_STEPS = 100;
-    public static final double GRAPH_STEP_SIZE = 30*60*1000.0;
+    private static final int GRAPH_STEPS = 100;
+    private static final double GRAPH_STEP_SIZE = 30*60*1000.0;
 
     public static String calculateActivePercentString(Stopwatch master, Stopwatch slave) {
         double percent = calculateActivePercentage(master, slave);
         return percent < 0 ? "N/A" : (Math.round(percent * 100) + "%");
     }
 
-    public static double calculateActivePercentage(Stopwatch master, Stopwatch slave) {
+    private static double calculateActivePercentage(Stopwatch master, Stopwatch slave) {
         return (double) slave.getCurrentDuration() / master.getCurrentDuration();
     }
 
@@ -50,8 +50,8 @@ public class StatCalculator {
     /**
      * @return array of active percentages (cumulative)
      */
-    public static double[][] calculateAverages(Stopwatch master, Stopwatch slave,
-            boolean isCummulative, int steps, double stepSize) {
+    private static double[][] calculateAverages(Stopwatch master, Stopwatch slave,
+                                                boolean isCummulative, int steps, double stepSize) {
         ArrayList<StopwatchAction> masterActions = master.getStopwatchActions();
         ArrayList<StopwatchAction> slaveActions = slave.getStopwatchActions();
 
@@ -100,15 +100,15 @@ public class StatCalculator {
     private static class ActionStepper {
         ArrayList<StopwatchAction> actions;
         int index = 0;
-        boolean isCumulative = true;
+        boolean isCumulative;
         long lastDuration = 0;
 
-        public ActionStepper(ArrayList<StopwatchAction> actions, boolean isCumulative) {
+        ActionStepper(ArrayList<StopwatchAction> actions, boolean isCumulative) {
             this.actions = actions;
             this.isCumulative = isCumulative;
         }
 
-        public long getDurationAt(long timestamp) {
+        long getDurationAt(long timestamp) {
             long duration;
             if (index >= actions.size()) {
                 duration = actions.get(actions.size() - 1).getDuration();
@@ -136,15 +136,15 @@ public class StatCalculator {
             return duration;
         }
 
-        public long getTimestamp() {
+        long getTimestamp() {
             return actions.get(index).getTimestamp();
         }
 
-        public boolean hasNext() {
+        boolean hasNext() {
             return index + 1 < actions.size();
         }
 
-        public long getNextTimestamp() {
+        long getNextTimestamp() {
             return hasNext() ? actions.get(index + 1).getTimestamp() : Long.MAX_VALUE;
         }
     }
@@ -192,7 +192,7 @@ public class StatCalculator {
     }
 
     private static double getRatio(double master, double slave, boolean slaveFirst) {
-        double data = 0;
+        double data;
 
         if (master == 0) {
             // if slave duration isn't 0 or it occurred first, 1.0, otherwise 0.0

@@ -3,7 +3,6 @@ package com.mihai.traxxor.activities;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.LinearLayout;
@@ -18,7 +17,9 @@ import com.jjoe64.graphview.LineGraphView;
 import com.mihai.traxxor.R;
 import com.mihai.traxxor.util.Util;
 
-public class GraphActivity extends Activity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class GraphActivity extends AppCompatActivity {
     // if graph spans more than this many ms, don't show seconds on X-axis
     private static final int SECONDS_CUTOFF_MS = 5 * 60 * 1000;
 
@@ -26,13 +27,13 @@ public class GraphActivity extends Activity {
         Calendar cl = Calendar.getInstance();
         boolean includeSeconds;
 
-        public Formatter(boolean includeSeconds) {
+        Formatter(boolean includeSeconds) {
             super();
             this.includeSeconds = includeSeconds;
         }
 
         public String formatLabel(double value, boolean isX) {
-            String retValue = "";
+            String retValue;
             if (isX) {
                 retValue = getTimeString(cl, (long) value);
             } else {
@@ -69,8 +70,7 @@ public class GraphActivity extends Activity {
         for (int i = 0; i < ids.size(); i++) {
             double[] rawXData = getIntent().getDoubleArrayExtra(Util.getGraphXExtra(ids.get(i)));
             double[] rawYData = getIntent().getDoubleArrayExtra(Util.getGraphYExtra(ids.get(i)));
-            if (rawXData == null || rawYData == null || title == null ||
-                    rawXData.length == 0 || rawYData.length == 0 || rawXData.length != rawYData.length) {
+            if (rawXData == null || rawYData == null || rawXData.length == 0 || rawYData.length == 0 || rawXData.length != rawYData.length) {
                 return;
             }
 
@@ -92,7 +92,7 @@ public class GraphActivity extends Activity {
         }
 
         setContentView(R.layout.graph);
-        LinearLayout v = (LinearLayout) findViewById(R.id.graph_holder);
+        LinearLayout v = findViewById(R.id.graph_holder);
         v.addView(graphView);
         graphView.setGraphViewStyle(new GraphViewStyle(Color.BLACK, Color.BLACK, Color.BLACK));
         graphView.setManualYAxisBounds(1, 0);

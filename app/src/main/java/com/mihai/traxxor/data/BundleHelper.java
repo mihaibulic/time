@@ -9,17 +9,21 @@ import com.mihai.traxxor.R;
 
 public class BundleHelper {
 
-    public static ArrayList<Stopwatch> readStopwatchesFromBundle(Bundle savedInstanceState, Stopwatch master) {
+    public static Stopwatch readMasterStopwatchFromBundle(Bundle savedInstanceState) {
         Parcelable masterParcel = savedInstanceState.getParcelable(String.valueOf(R.integer.key_master_stopwatch));
-        if (master instanceof Stopwatch) {
-            master = (Stopwatch) masterParcel;
+        if (masterParcel instanceof Stopwatch) {
+            return (Stopwatch) masterParcel;
         }
 
-        ArrayList<Parcelable> Parcelwatches = savedInstanceState.getParcelableArrayList(
+        return null;
+    }
+
+    public static ArrayList<Stopwatch> readStopwatchesFromBundle(Bundle savedInstanceState) {
+        ArrayList<Parcelable> parcelWatches = savedInstanceState.getParcelableArrayList(
                 String.valueOf(R.integer.key_stopwatch_list));
-        ArrayList<Stopwatch> watches = new ArrayList<Stopwatch>();
-        if (Parcelwatches != null) {
-            for (Parcelable watch : Parcelwatches) {
+        ArrayList<Stopwatch> watches = new ArrayList<>();
+        if (parcelWatches != null) {
+            for (Parcelable watch : parcelWatches) {
                 if (watch instanceof Stopwatch) {
                     watches.add((Stopwatch) watch);
                 }

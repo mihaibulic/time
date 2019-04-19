@@ -1,43 +1,45 @@
 package com.mihai.traxxor.util;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 
 import com.mihai.traxxor.R;
 import com.mihai.traxxor.activities.GraphActivity;
 import com.mihai.traxxor.data.StatCalculator;
 import com.mihai.traxxor.data.Stopwatch;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+
 public class Util {
-    private static final String PREFS = "traxxor_shared_prefs";
     private static final int MS_PER_SEC = 1000;
     private static final int MS_PER_MIN = MS_PER_SEC * 60;
     private static final int MS_PER_HOUR = MS_PER_MIN * 60;
 
-    public static SharedPreferences getPrefs(Context ctx) {
-        return ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE);
-    }
-
     public static String calculateTimeString(Stopwatch watch) {
         long durationMs = watch.getCurrentDuration();
+        return calculateTimeString(durationMs);
+    }
+
+    public static String calculateTimeString(long durationMs) {
+        String signPrefix = (durationMs < 0) ? "-" : "";
+        durationMs = Math.abs(durationMs);
+
         long hours = durationMs / MS_PER_HOUR;
         durationMs -= hours * MS_PER_HOUR;
         long minutes = durationMs / MS_PER_MIN;
         durationMs -= minutes * MS_PER_MIN;
         long seconds = durationMs / MS_PER_SEC;
-        durationMs -= seconds * MS_PER_SEC;
+        //durationMs -= seconds * MS_PER_SEC;
 
-        return String.format("%s:%s:%s", getTimeSubString(hours), getTimeSubString(minutes), getTimeSubString(seconds));
+        return String.format("%s%s:%s:%s", signPrefix, getTimeSubString(hours), getTimeSubString(minutes), getTimeSubString(seconds));
     }
 
-    public static String getTimeSubString(long substring) {
+
+    private static String getTimeSubString(long substring) {
+        substring = Math.abs(substring);
         return (substring == 0 ? "00" : (substring < 10 ? "0" + substring : "" + substring));
     }
 
@@ -49,7 +51,7 @@ public class Util {
         return id + "_y";
     }
 
-    public static String getGraphPrefix(int id) {
+    private static String getGraphPrefix(int id) {
         return "graph_" + id;
     }
 
@@ -64,10 +66,10 @@ public class Util {
 
     public static void graphStopwatches(Activity act, ArrayList<Stopwatch> watches, Stopwatch master, boolean isCumulative) {
         Intent intent = new Intent(act, GraphActivity.class);
-        intent.putExtra(String.valueOf(R.integer.extra_graph_title), act.getString(R.string.all_stopwatches_graph));
+        intent.putExtra(String.valueOf(R.integer.extra_graph_title), act.getString(R.string.graph_all_stopwatches));
 
-        ArrayList<String> ids = new ArrayList<String>();
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> ids = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
         for (Stopwatch watch : watches) {
             double[][] data = StatCalculator.calculateAverages(master, watch, isCumulative);
             if (data != null) {
@@ -89,8 +91,8 @@ public class Util {
         double[][] data = StatCalculator.calculateAverages(master, watch, isCumulative);
         graphIntent.putExtra(String.valueOf(R.integer.extra_graph_title), watch.getName());
 
-        ArrayList<String> ids = new ArrayList<String>();
-        ArrayList<String> names = new ArrayList<String>();
+        ArrayList<String> ids = new ArrayList<>();
+        ArrayList<String> names = new ArrayList<>();
 
         ids.add(Util.getGraphPrefix(watch.getId()));
         names.add(watch.getName());

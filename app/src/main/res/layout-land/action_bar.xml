@@ -1,55 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:gravity="center" >
+    android:layout_height="wrap_content">
+
     <TextView
         android:id="@+id/master_stopwatch_description"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="@dimen/large_padding"
         android:gravity="end"
+        android:padding="@dimen/large_padding"
         android:singleLine="true"
-        android:text="@string/master_stopwatch_description"
+        android:text="@string/action_bar_master_stopwatch_description"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/master_text"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/master_stopwatch"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/master_stopwatch"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="@dimen/large_padding"
         android:gravity="start"
+        android:padding="@dimen/large_padding"
         android:singleLine="true"
-        android:text="@string/start_time"
+        android:text="@string/action_bar_start_time"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/time_text"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/master_stopwatch_description"
+        app:layout_constraintEnd_toStartOf="@+id/time_at_work_remaining"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/time_at_work_remaining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:padding="@dimen/large_padding"
+        android:singleLine="true"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/master_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/master_stopwatch"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/manage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/small_padding"
-        android:paddingBottom="@dimen/small_padding"
-        android:paddingLeft="@dimen/large_padding"
-        android:paddingRight="@dimen/large_padding"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_settings_black_24dp"
+        android:background="@drawable/bg"
         android:contentDescription="@string/action_manage"
-        android:background="@drawable/bg" />
+        android:paddingLeft="@dimen/large_padding"
+        android:paddingTop="@dimen/small_padding"
+        android:paddingRight="@dimen/action_bar_button_horz_padding"
+        android:paddingBottom="@dimen/small_padding"
+        android:src="@drawable/ic_settings_black_24dp"
+        android:tint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/toggle_day"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageButton
         android:id="@+id/toggle_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/small_padding"
-        android:paddingBottom="@dimen/small_padding"
-        android:paddingLeft="@dimen/large_padding"
-        android:paddingRight="@dimen/large_padding"
-        android:layout_gravity="center_vertical"
-        android:src="@drawable/ic_play_black_24dp"
+        android:background="@drawable/bg"
         android:contentDescription="@string/action_day_toggle"
-        android:background="@drawable/bg" />
-</LinearLayout>
+        android:paddingLeft="@dimen/action_bar_button_horz_padding"
+        android:paddingTop="@dimen/small_padding"
+        android:paddingRight="@dimen/large_padding"
+        android:paddingBottom="@dimen/small_padding"
+        android:src="@drawable/ic_play_black_24dp"
+        android:tint="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

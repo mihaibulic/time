@@ -31,7 +31,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
     private static int sTimeOnColor;
     private static int sTimeOffColor;
 
-    private ArrayList<Stopwatch> mStopwatches = new ArrayList<Stopwatch>();
+    private ArrayList<Stopwatch> mStopwatches = new ArrayList<>();
     private AtomicBoolean mRun = new AtomicBoolean(false);
     private View mClickedView = null;
     private Handler mHandler;
@@ -156,7 +156,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
             if (mRun.get()) {
                 if (mClickedView == null) {
                     notifyDataSetChanged();
-                    sActivity.updateMaster();
+                    sActivity.refresh();
                 }
 
                 mHandler.postDelayed(new RefreshTask(), REFRESH_TIME_MS);
@@ -179,7 +179,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return createStopwatch(name, false);
     }
 
-    public synchronized Stopwatch createStopwatch(String name, boolean start) {
+    private synchronized Stopwatch createStopwatch(String name, boolean start) {
         Stopwatch watch = null;
         if (!TextUtils.isEmpty(name)) {
             watch = new Stopwatch(mNextId++, name);
@@ -198,7 +198,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         addStopwatch(new Stopwatch(mNextId++, name));
     }
 
-    public synchronized void addStopwatch(Stopwatch watch) {
+    private synchronized void addStopwatch(Stopwatch watch) {
         if (watch.getId() > mNextId) {
             mNextId = watch.getId()+1;
         }
@@ -212,7 +212,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         }
     }
 
-    public synchronized void removeStopwatch(Stopwatch watch) {
+    private synchronized void removeStopwatch(Stopwatch watch) {
         if (mStopwatches.remove(watch)) {
             notifyDataSetChanged();
         }
@@ -241,7 +241,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         return mStopwatches;
     }
 
-    public void startStopwatch(Stopwatch watch) {
+    private void startStopwatch(Stopwatch watch) {
         if (!watch.isStarted()) {
             for (Stopwatch w : mStopwatches) {
                 w.stop();
@@ -252,7 +252,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         }
     }
 
-    public void toggleStopwatch(Stopwatch watch) {
+    private void toggleStopwatch(Stopwatch watch) {
         if (watch.stop()) {
             notifyDataSetChanged();
         } else {
@@ -260,7 +260,7 @@ public class StopwatchAdapter extends BaseAdapter implements OnTouchListener, On
         }
     }
 
-    public void resetStopwatch(Stopwatch watch) {
+    private void resetStopwatch(Stopwatch watch) {
         if (watch.reset()) {
             notifyDataSetChanged();
         }

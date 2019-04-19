@@ -6,6 +6,8 @@
     <integer name="key_stopwatch_list">0</integer>
 
     <integer name="extra_graph_title">0</integer>
+    <integer name="extra_time_at_work_hours">0</integer>
+    <integer name="extra_get_up_frequency_minutes">0</integer>
     <integer name="extra_stopwatch_names">0</integer>
     <integer name="extra_stopwatch_ids">0</integer>
     <integer name="extra_stopwatches_to_add">0</integer>
@@ -27,8 +29,6 @@
     <integer name="action_type_start">0</integer>
     <integer name="action_type_stop">0</integer>
 
-    <integer name="manager_request_code">0</integer>
-    
     <integer name="describe_contents_stopwatch">0</integer>
     <integer name="describe_contents_action">0</integer>
 </resources>

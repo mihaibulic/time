@@ -3,13 +3,23 @@
     <color name="master_stopwatch_off">#60FFC3C3</color>
     <color name="master_stopwatch_on">#6095e695</color>
 
-    <color name="stopwatch_off">#FFFF5353</color>
-    <color name="stopwatch_on">#FF42cc42</color>
-    <color name="black">#FF4C4C4C</color>
-    <color name="gray">#FFBCBCBC</color>
-    <color name="transparent">#00000000</color>
-    <color name="android_blue">#9933B5E5</color>
+    <color name="stopwatch_off">@color/red</color>
+    <color name="stopwatch_on">@color/green</color>
 
-    <color name="action_bar_background">#CCFEFEFE</color>
-    <color name="background">#FFFEFEFE</color>
+    <color name="timeAtWork_positive">@color/gray</color>
+    <color name="timeAtWork_negative">@color/red</color>
+
+    <color name="black">#FF222222</color>
+    <color name="white">#FFEFEFEF</color>
+    <color name="gray">#FFBCBCBC</color>
+    <color name="red">#FFFF5353</color>
+    <color name="green">#FF42cc42</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="stopwatch_background">#FFFEFEFE</color>
+
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorAccent">@color/black</color>
+
 </resources>

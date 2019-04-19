@@ -9,12 +9,11 @@
         android:id="@+id/stopwatch_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/large_padding"
         android:horizontalSpacing="@dimen/large_padding"
         android:verticalSpacing="@dimen/large_padding"
         android:paddingLeft="@dimen/large_padding"
         android:paddingRight="@dimen/large_padding"
-        android:paddingTop="@dimen/action_bar_height"
+        android:paddingTop="@dimen/large_padding"
         android:numColumns="@integer/stopwatch_grid_num_columns"
         android:clipToPadding="false"
         android:gravity="center" >

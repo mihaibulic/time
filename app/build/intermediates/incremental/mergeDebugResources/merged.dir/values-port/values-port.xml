@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="action_bar_height">70dp</dimen>
-    <integer name="stopwatch_grid_num_columns">2</integer>
-</resources>

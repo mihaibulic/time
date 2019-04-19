@@ -6,7 +6,10 @@
     <dimen name="small_padding">2dp</dimen>
     <dimen name="large_padding">8dp</dimen>
 
+    <dimen name="action_bar_button_horz_padding">12dp</dimen>
+
     <dimen name="action_bar_height_port">70dp</dimen>
     <dimen name="action_bar_height_land">50dp</dimen>
+    <dimen name="time_at_work_seek_bar_height">24dp</dimen>
 
 </resources>

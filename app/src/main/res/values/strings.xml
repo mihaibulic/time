@@ -2,9 +2,12 @@
 <resources>
     <string name="app_name">Traxxor</string>
 
-    <string name="main_empty_view">Go to Manage in settings to create Traxx.</string>
-    <string name="manager_empty_view">No Traxx, create one above.</string>
+    <!--MainActivity Action Bar-->
+    <string name="action_bar_master_stopwatch_description">Total time today</string>
+    <string name="action_bar_start_time">00:00:00</string>
+    <string name="action_bar_time_at_work_remaining">(%s to go)</string>
 
+    <!--MainActivity Menu-->
     <string name="action_manage">Manage Traxx</string>
     <string name="action_graph_discrete">Graph All Traxx Discretely</string>
     <string name="action_graph_cumulative">Graph All Traxx Cumulatively</string>
@@ -12,22 +15,27 @@
     <string name="action_day_reset">Reset Day</string>
     <string name="action_day_advance">Next Day</string>
 
-    <string name="action_add">Add</string>
-    <string name="action_delete">Delete</string>
+    <!--MainActivity View-->
+    <string name="main_empty_view">Go to Manage in settings to create Traxx.</string>
 
+    <!--MainActivity Stopwatch View-->
     <string name="stopwatch_action_graph_discrete">Graph Discretely</string>
     <string name="stopwatch_action_graph_cumulative">Graph Cumulatively</string>
     <string name="stopwatch_action_toggle">Toggle</string>
     <string name="stopwatch_action_reset">Reset</string>
     <string name="stopwatch_action_delete">Delete</string>
 
-    <string name="start_time">00:00:00</string>
-    <string name="stopwatch_name">Name of new Traxx</string>
-    <string name="master_stopwatch_description">Total time today</string>
-    <string name="all_stopwatches_graph">All Traxx</string>
 
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
+    <!--SettingsManagerActivity-->
+    <string name="settings_manager_empty_view">No Traxx, create one above.</string>
+    <string name="settings_manager_time_at_work_label">Time at Work: %1$.1f hours</string>
+    <string name="settings_manager_error">Error loading Traxx</string>
+    <string name="settings_manager_stopwatch_name_hint">Name of new Traxx</string>
+    <string name="settings_manager_action_add_stopwatch">Add</string>
+    <string name="settings_manager_action_delete_stopwatch">Delete</string>
 
-    <string name="manager_error">Error loading Traxx</string>
+
+    <!--GraphActivity-->
+    <string name="graph_all_stopwatches">All Traxx</string>
+
 </resources>

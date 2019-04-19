@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/large_padding" >
+
+    <TextView
+        android:id="@+id/time_at_work_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/time_at_work_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/time_at_work_seek_bar_height"
+        android:padding="@dimen/large_padding" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:clickable="false" >
+
+        <ImageView
+            android:id="@+id/add_stopwatch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/small_padding"
+            android:contentDescription="@string/settings_manager_action_add_stopwatch"
+            android:src="@drawable/ic_add_stopwatch_black_24dp"
+            />
+
+        <EditText
+            android:id="@+id/stopwatch_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/settings_manager_stopwatch_name_hint"
+            android:singleLine="true"
+            android:imeOptions="actionDone"
+            />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/stopwatch_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        />
+    <TextView
+        android:id="@+id/empty_view" 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/large_padding"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        android:text="@string/settings_manager_empty_view"
+        />
+</LinearLayout>
+

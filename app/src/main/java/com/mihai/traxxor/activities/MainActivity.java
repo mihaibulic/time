@@ -1,12 +1,7 @@
 package com.mihai.traxxor.activities;
 
-import java.util.ArrayList;
-
-import android.app.ActionBar;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.LayoutInflater;
@@ -20,31 +15,44 @@ import android.widget.TextView;
 
 import com.mihai.traxxor.R;
 import com.mihai.traxxor.adapters.StopwatchAdapter;
+import com.mihai.traxxor.data.ActionHandler;
 import com.mihai.traxxor.data.BundleHelper;
-import com.mihai.traxxor.data.DbHelper;
+import com.mihai.traxxor.data.SettingsProvider;
 import com.mihai.traxxor.data.Stopwatch;
+import com.mihai.traxxor.data.StopwatchDataProvider;
 import com.mihai.traxxor.util.Util;
 
+import java.util.ArrayList;
 
-public class MainActivity extends Activity implements OnClickListener {
-    public static final int ANIMATION_DURATION = 100; // MS
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
+
+public class MainActivity extends AppCompatActivity implements OnClickListener {
+    private static final int SETTINGS_MANAGER_REQUEST_CODE = 123;
+
     public static final int MASTER_ID = -1;
 
-    private static int sMasterOnColor;
-    private static int sMasterOffColor;
+    private ActionHandler mActionHandler;
 
-    private Stopwatch mMasterWatch;
+    private StopwatchDataProvider mStopwatchDataProvider;
     private StopwatchAdapter mAdapter;
-    private DbHelper mDbHelper;
+    private Stopwatch mMasterWatch;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDbHelper = new DbHelper(this);
-        initWatches(savedInstanceState);
-        initActionBar();
+        mStopwatchDataProvider = new StopwatchDataProvider(this);
+        SettingsProvider settingsProvider = new SettingsProvider(this);
+        // TODO add UI for setting getupfreq
+        // TODO persist ActionHandler to DB
+        mActionHandler = new ActionHandler(this,null, settingsProvider.getTimeAtWorkHours(), 90);
 
+        initMasterWatchAndAdapter(savedInstanceState);
+
+        initActionBar();
         setContentView(R.layout.main_activity);
+
         GridView grid = findViewById(R.id.stopwatch_grid);
         grid.setAdapter(mAdapter);
         grid.setEmptyView(findViewById(R.id.empty_view));
@@ -61,22 +69,22 @@ public class MainActivity extends Activity implements OnClickListener {
 
     @Override
     public void onStop() {
-        mDbHelper.writeToTable(mAdapter.getStopwatches(), mMasterWatch, DbHelper.TABLE_TYPE_TEMP);
+        mStopwatchDataProvider.writeToTable(mAdapter.getStopwatches(), mMasterWatch, StopwatchDataProvider.TABLE_TYPE_TEMP);
         super.onStop();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        addMenutItem(menu, R.string.action_manage);
-        addMenutItem(menu, R.string.action_graph_discrete);
-        addMenutItem(menu, R.string.action_graph_cumulative);
-        addMenutItem(menu, R.string.action_day_toggle);
-        addMenutItem(menu, R.string.action_day_advance);
-        addMenutItem(menu, R.string.action_day_reset);
+        addMenuItem(menu, R.string.action_manage);
+        addMenuItem(menu, R.string.action_graph_discrete);
+        addMenuItem(menu, R.string.action_graph_cumulative);
+        addMenuItem(menu, R.string.action_day_toggle);
+        addMenuItem(menu, R.string.action_day_advance);
+        addMenuItem(menu, R.string.action_day_reset);
         return true;
     }
 
-    private void addMenutItem(Menu menu, int resId) {
+    private void addMenuItem(Menu menu, int resId) {
         menu.add(resId).setTitleCondensed(String.valueOf(resId));
     }
 
@@ -85,7 +93,7 @@ public class MainActivity extends Activity implements OnClickListener {
     }
 
     @Override
-    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item) {
         boolean selected = true;
 
         switch (getMenuItemResId(item)) {
@@ -96,7 +104,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 Util.graphStopwatches(this, mAdapter.getStopwatches(), mMasterWatch, true);
                 break;
             case R.string.action_manage:
-                startActivityForResult(getManagerIntent(), R.integer.manager_request_code);
+                startActivityForResult(getManagerIntent(), SETTINGS_MANAGER_REQUEST_CODE);
                 break;
             case R.string.action_day_toggle:
                 toggleMaster();
@@ -105,7 +113,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 if (mMasterWatch.isStarted()) {
                     toggleMaster();
                 }
-                mDbHelper.writeToTable(mAdapter.getStopwatches(), mMasterWatch, DbHelper.TABLE_TYPE_PERM);
+                mStopwatchDataProvider.writeToTable(mAdapter.getStopwatches(), mMasterWatch, StopwatchDataProvider.TABLE_TYPE_PERM);
                 resetMaster();
                 break;
             case R.string.action_day_reset:
@@ -121,7 +129,10 @@ public class MainActivity extends Activity implements OnClickListener {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK && requestCode == R.integer.manager_request_code) {
+        if (resultCode == AppCompatActivity.RESULT_OK && requestCode == SETTINGS_MANAGER_REQUEST_CODE) {
+            mActionHandler.setTimeAtWork(data.getFloatExtra(String.valueOf(R.integer.extra_time_at_work_hours), 6));
+            mActionHandler.setGetUpFrequency(data.getIntExtra(String.valueOf(R.integer.extra_get_up_frequency_minutes), 90));
+
             ArrayList<String> names = data.getStringArrayListExtra(String.valueOf(R.integer.extra_stopwatches_to_add));
             ArrayList<Integer> ids = data.getIntegerArrayListExtra(String.valueOf(R.integer.extra_stopwatches_to_delete));
 
@@ -143,10 +154,13 @@ public class MainActivity extends Activity implements OnClickListener {
         return mMasterWatch;
     }
 
-    public void resetMaster() {
+    private void resetMaster() {
         if (mMasterWatch.reset()) {
-            updateMaster();
+            mActionHandler.reset();
             mAdapter.resetAllStopwatches();
+
+            updateMaster();
+            updateTimeAtWork();
         }
     }
 
@@ -157,7 +171,7 @@ public class MainActivity extends Activity implements OnClickListener {
         }
     }
 
-    public void toggleMaster() {
+    private void toggleMaster() {
         if (mMasterWatch.stop()) {
             updateMaster();
             mAdapter.stopAllStopwatches();
@@ -167,32 +181,44 @@ public class MainActivity extends Activity implements OnClickListener {
         }
     }
 
-    public StopwatchAdapter getAdapter() {
-        return mAdapter;
-    }
+    private void updateMaster() {
+        // Update text
+        ((TextView) findViewById(R.id.master_stopwatch))
+                .setText(Util.calculateTimeString(mMasterWatch));
 
-    public void updateMasterColor() {
-        final int color = mMasterWatch.isStarted() ? sMasterOnColor : sMasterOffColor;
+        // Update color
+        final int color = getResources().getColor(mMasterWatch.isStarted()
+                ? R.color.master_stopwatch_on
+                : R.color.master_stopwatch_off);
         findViewById(R.id.content).setBackgroundColor(color);
     }
 
-    public void updateMasterTime() {
-        ((TextView) findViewById(R.id.master_stopwatch))
-                .setText(Util.calculateTimeString(mMasterWatch));
+    private void updateTimeAtWork() {
+        // Calculate text
+        long timeRemaining = mActionHandler.getTimeAtWorkRemainingMs(mMasterWatch.getCurrentDuration());
+
+        // Update text
+        TextView timeAtWorRemaining = findViewById(R.id.time_at_work_remaining);
+        final int textColor = getResources().getColor(timeRemaining >= 0 ? R.color.timeAtWork_positive: R.color.timeAtWork_negative);
+        timeAtWorRemaining.setText(getString(R.string.action_bar_time_at_work_remaining,
+                Util.calculateTimeString(timeRemaining)));
+        timeAtWorRemaining.setTextColor(textColor);
     }
 
-    public void updateMaster() {
-        updateMasterColor();
-        updateMasterTime();
+    public void refresh() {
+        mActionHandler.handleActionsIfNeeded(mMasterWatch.getCurrentDuration());
+
+        updateMaster();
+        updateTimeAtWork();
     }
 
     private void initActionBar() {
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(true);
         actionBar.setDisplayShowTitleEnabled(false);
         actionBar.setIcon(R.drawable.ic_action_bar_logo);
-        LayoutInflater inflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflator.inflate(R.layout.action_bar, null);
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = inflater.inflate(R.layout.action_bar, null);
         ActionBar.LayoutParams params = new ActionBar.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         actionBar.setCustomView(view, params);
@@ -210,33 +236,44 @@ public class MainActivity extends Activity implements OnClickListener {
     /**
      * tries to restore from the savedInstanceState, otherwise queries the temp tables in the DB
      */
-    private void initWatches(Bundle savedInstanceState) {
+    private void initMasterWatchAndAdapter(Bundle savedInstanceState) {
         mAdapter = new StopwatchAdapter(this);
         mMasterWatch = null;
         if (savedInstanceState != null) {
-            mAdapter.addStopwatches(BundleHelper.readStopwatchesFromBundle(savedInstanceState, mMasterWatch));
+            mMasterWatch = BundleHelper.readMasterStopwatchFromBundle(savedInstanceState);
+            mAdapter.addStopwatches(BundleHelper.readStopwatchesFromBundle(savedInstanceState));
         } else {
-            mAdapter.setNextId(mDbHelper.getNextStopwatchId());
-            Pair<Stopwatch, ArrayList<Stopwatch>> pair = mDbHelper.readFromTable(Util.getToday(), DbHelper.TABLE_TYPE_TEMP);
+            // TODO it looks like if the app is opening fresh / isn't being restored, and hasn't been opened today - there will be no stopwatches
+            // since we restore them based on the day.  Make day optional? If omitted just find latest days watches and load that?
+            mAdapter.setNextId(mStopwatchDataProvider.getNextStopwatchId());
+            Pair<Stopwatch, ArrayList<Stopwatch>> pair = mStopwatchDataProvider.readFromTable(Util.getToday(), StopwatchDataProvider.TABLE_TYPE_TEMP);
+
             mMasterWatch = pair.first;
             mAdapter.addStopwatches(pair.second);
+
+            // TODO this is a bit of a hack to seed the stopwatches
+            if (mAdapter.getCount() == 0) {
+                mAdapter.createStopwatch("Online Comms");
+                mAdapter.createStopwatch("Offline Comms");
+                mAdapter.createStopwatch("IC Work");
+                mAdapter.createStopwatch("IC Review");
+                mAdapter.createStopwatch("Meetings");
+                mAdapter.createStopwatch("Organization");
+                mAdapter.createStopwatch("Non-Work");
+            }
         }
 
         if (mMasterWatch == null) {
-            mMasterWatch = new Stopwatch(MASTER_ID, getString(R.string.master_stopwatch_description));
+            mMasterWatch = new Stopwatch(MASTER_ID, getString(R.string.action_bar_master_stopwatch_description));
         }
 
         if (mMasterWatch.isStarted()) {
             mAdapter.startRefresh();
         }
-
-        final Resources res = getResources();
-        sMasterOnColor = res.getColor(R.color.master_stopwatch_on);
-        sMasterOffColor = res.getColor(R.color.master_stopwatch_off);
     }
 
     private Intent getManagerIntent() {
-        Intent intent = new Intent(this, ManagerActivity.class);
+        Intent intent = new Intent(this, SettingsManagerActivity.class);
         String[] stopwatchNames = new String[mAdapter.getCount()];
         int[] stopwatchIds = new int[mAdapter.getCount()];
         for (int i = 0; i < stopwatchNames.length; i++) {
@@ -252,7 +289,7 @@ public class MainActivity extends Activity implements OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.manage:
-                startActivityForResult(getManagerIntent(), R.integer.manager_request_code);
+                startActivityForResult(getManagerIntent(), SETTINGS_MANAGER_REQUEST_CODE);
                 break;
             case R.id.toggle_day:
                 toggleMaster();
