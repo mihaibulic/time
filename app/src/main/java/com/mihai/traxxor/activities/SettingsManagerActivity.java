@@ -20,18 +20,21 @@ import com.mihai.traxxor.data.SettingsProvider;
 import java.util.ArrayList;
 
 import androidx.annotation.FloatRange;
+import androidx.annotation.IntRange;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatSeekBar;
 
 public class SettingsManagerActivity extends AppCompatActivity implements OnClickListener {
 
-    private TextView mTimeAtWorkLabel;
-    private AppCompatSeekBar mTimeAtWorkSeekBar;
+    private TextView mTimeToLeaveLabel;
+    private AppCompatSeekBar mTimeToLeaveSeekBar;
+
+    private TextView mTimeToGetUpLabel;
+    private AppCompatSeekBar mTimeToGetUpSeekBar;
+
     private EditText mNameView;
-
     private SettingsProvider mSettingsProvider;
-
     private SettingsManagerAdapter mAdapter;
 
     @Override
@@ -52,29 +55,8 @@ public class SettingsManagerActivity extends AppCompatActivity implements OnClic
 
         setContentView(R.layout.settings_manager_activity);
 
-        mTimeAtWorkLabel = findViewById(R.id.time_at_work_label);
-        mTimeAtWorkSeekBar = findViewById(R.id.time_at_work_seek_bar);
-
-        float timeAtWorkHours = mSettingsProvider.getTimeAtWorkHours();
-        int timeAtWorkProgress = convertHoursToSeekbar(timeAtWorkHours);
-        mTimeAtWorkSeekBar.setProgress(timeAtWorkProgress);
-        updateTimeAtWorkLabel(timeAtWorkProgress);
-        mTimeAtWorkSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int timeAtWorkProgress, boolean fromUser) {
-                updateTimeAtWorkLabel(timeAtWorkProgress);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // noop
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // noop
-            }
-        });
+        initTimeToLeave();
+        initGetUp();
 
         ListView list = findViewById(R.id.stopwatch_list);
         list.setAdapter(mAdapter);
@@ -109,15 +91,67 @@ public class SettingsManagerActivity extends AppCompatActivity implements OnClic
     public void finish() {
         setResult(AppCompatActivity.RESULT_OK, getResultIntent());
 
-        mSettingsProvider.setTimeAtWork(getTimeAtWorkHours());
+        mSettingsProvider.setTimeToLeave(getTimeToLeaveHours());
+        mSettingsProvider.setTimeToGetUp(getTimeToGetUpMinutes());
 
         super.finish();
     }
 
+    @Override
     public void onClick(final View v) {
         if (v.getId() == R.id.add_stopwatch) {
             addStopwatch();
         }
+    }
+
+    private void initTimeToLeave() {
+        mTimeToLeaveLabel = findViewById(R.id.time_to_leave_label);
+        mTimeToLeaveSeekBar = findViewById(R.id.time_to_leave_seek_bar);
+        float timeToLeaveHours = mSettingsProvider.getTimeToLeaveHours();
+        int timeToLeaveProgress = convertTimeToLeaveHoursToSeekbarProgress(timeToLeaveHours);
+        mTimeToLeaveSeekBar.setProgress(timeToLeaveProgress);
+        updateTimeToLeaveLabel(timeToLeaveProgress);
+        mTimeToLeaveSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int timeToLeaveProgress, boolean fromUser) {
+                updateTimeToLeaveLabel(timeToLeaveProgress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // noop
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // noop
+            }
+        });
+    }
+
+    private void initGetUp() {
+        mTimeToGetUpLabel = findViewById(R.id.time_to_get_up_label);
+        mTimeToGetUpSeekBar = findViewById(R.id.time_to_get_up_seek_bar);
+        int timeToGetUpMinutes = mSettingsProvider.getTimeToGetUpMinutes();
+        int timeToGetUpProgress = convertTimeToGetUpMinutesToSeekbarProgress(timeToGetUpMinutes);
+        mTimeToGetUpSeekBar.setProgress(timeToGetUpProgress);
+        updateTimeToGetUpLabel(timeToGetUpProgress);
+        mTimeToGetUpSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int timeToGetUpProgress, boolean fromUser) {
+                updateTimeToGetUpLabel(timeToGetUpProgress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // noop
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // noop
+            }
+        });
     }
 
     private void addStopwatch() {
@@ -166,35 +200,65 @@ public class SettingsManagerActivity extends AppCompatActivity implements OnClic
         }
 
         Intent data = new Intent();
-        data.putExtra(String.valueOf(R.integer.extra_time_at_work_hours), getTimeAtWorkHours());
+        data.putExtra(String.valueOf(R.integer.extra_time_to_leave_hours), getTimeToLeaveHours());
+        data.putExtra(String.valueOf(R.integer.extra_time_to_get_up_minutes), getTimeToGetUpMinutes());
         data.putExtra(String.valueOf(R.integer.extra_stopwatches_to_add), toAdd);
         data.putExtra(String.valueOf(R.integer.extra_stopwatches_to_delete), mAdapter.getDeleted());
 
         return data;
     }
 
-    private void updateTimeAtWorkLabel(int progress) {
-        mTimeAtWorkLabel.setText(getString(R.string.settings_manager_time_at_work_label, convertSeekbarToHours(progress)));
+
+    ///////////////////
+    // Time to leave //
+    ///////////////////
+
+    private void updateTimeToLeaveLabel(int leaveProgress) {
+        mTimeToLeaveLabel.setText(getString(R.string.settings_manager_time_to_leave_label, convertSeekbarProgressToTimeToLeaveHours(leaveProgress)));
     }
 
-    private static final int TIME_AT_WORK_MIN_HOURS = 6;
-    private static final int TIME_AT_WORK_MAX_HOURS = 12;
+    private static final int TIME_TO_LEAVE_MIN_HOURS = 6;
+    private static final int TIME_TO_LEAVE_MAX_HOURS = 12;
 
     /**
      * min is 6 hours, max is 12 hours.
      */
-    private static int convertHoursToSeekbar(@FloatRange(from = TIME_AT_WORK_MIN_HOURS, to = TIME_AT_WORK_MAX_HOURS) float hours) {
-        return (int) (100 * (hours - TIME_AT_WORK_MIN_HOURS) / (TIME_AT_WORK_MAX_HOURS - TIME_AT_WORK_MIN_HOURS));
+    private static int convertTimeToLeaveHoursToSeekbarProgress(@FloatRange(from = TIME_TO_LEAVE_MIN_HOURS, to = TIME_TO_LEAVE_MAX_HOURS) float hours) {
+        return (int) (100 * (hours - TIME_TO_LEAVE_MIN_HOURS) / (TIME_TO_LEAVE_MAX_HOURS - TIME_TO_LEAVE_MIN_HOURS));
     }
 
     /**
      * min is 6 hours, max is 12 hours.
      */
-    private static float convertSeekbarToHours(int seekBarProgress) {
-        return TIME_AT_WORK_MIN_HOURS + (seekBarProgress / 100.0f) * (TIME_AT_WORK_MAX_HOURS - TIME_AT_WORK_MIN_HOURS);
+    private static float convertSeekbarProgressToTimeToLeaveHours(int seekBarProgress) {
+        return TIME_TO_LEAVE_MIN_HOURS + (seekBarProgress / 100.0f) * (TIME_TO_LEAVE_MAX_HOURS - TIME_TO_LEAVE_MIN_HOURS);
     }
 
-    private float getTimeAtWorkHours() {
-        return convertSeekbarToHours(mTimeAtWorkSeekBar.getProgress());
+    private float getTimeToLeaveHours() {
+        return convertSeekbarProgressToTimeToLeaveHours(mTimeToLeaveSeekBar.getProgress());
+    }
+
+
+    ////////////////////
+    // Time to get up //
+    ////////////////////
+
+    private void updateTimeToGetUpLabel(int getUpProgress) {
+        mTimeToGetUpLabel.setText(getString(R.string.settings_manager_time_to_get_up_label, convertSeekbarProgressToTimeToGetUpMinutes(getUpProgress)));
+    }
+
+    private static final int TIME_TO_GET_UP_MIN_MINUTES = 20;
+    private static final int TIME_TO_GET_UP_MAX_MINUTES = 150;
+
+    private static int convertTimeToGetUpMinutesToSeekbarProgress(@IntRange(from = TIME_TO_GET_UP_MIN_MINUTES, to = TIME_TO_GET_UP_MAX_MINUTES) int minutes) {
+        return 100 * (minutes - TIME_TO_GET_UP_MIN_MINUTES) / (TIME_TO_GET_UP_MAX_MINUTES - TIME_TO_GET_UP_MIN_MINUTES);
+    }
+
+    private static int convertSeekbarProgressToTimeToGetUpMinutes(int seekBarProgress) {
+        return (int) (TIME_TO_GET_UP_MIN_MINUTES + (seekBarProgress / 100.0f) * (TIME_TO_GET_UP_MAX_MINUTES - TIME_TO_GET_UP_MIN_MINUTES));
+    }
+
+    private int getTimeToGetUpMinutes() {
+        return convertSeekbarProgressToTimeToGetUpMinutes(mTimeToGetUpSeekBar.getProgress());
     }
 }

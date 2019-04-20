@@ -5,7 +5,8 @@
     <!--MainActivity Action Bar-->
     <string name="action_bar_master_stopwatch_description">Total time today</string>
     <string name="action_bar_start_time">00:00:00</string>
-    <string name="action_bar_time_at_work_remaining">(%s to go)</string>
+    <string name="action_bar_time_to_leave_remaining">(go home in %s)</string>
+    <string name="action_bar_time_to_get_up_remaining">(get up in %s)</string>
 
     <!--MainActivity Menu-->
     <string name="action_manage">Manage Traxx</string>
@@ -17,6 +18,8 @@
 
     <!--MainActivity View-->
     <string name="main_empty_view">Go to Manage in settings to create Traxx.</string>
+    <string name="on_time_to_leave_event_toast">Time to go home!</string>
+    <string name="on_time_to_get_up_event_toast">Time to stretch those leggy weggies!</string>
 
     <!--MainActivity Stopwatch View-->
     <string name="stopwatch_action_graph_discrete">Graph Discretely</string>
@@ -28,7 +31,8 @@
 
     <!--SettingsManagerActivity-->
     <string name="settings_manager_empty_view">No Traxx, create one above.</string>
-    <string name="settings_manager_time_at_work_label">Time at Work: %1$.1f hours</string>
+    <string name="settings_manager_time_to_leave_label">Time at Work: %1$.1f hours</string>
+    <string name="settings_manager_time_to_get_up_label">Getting Up Frequency: %1$.0f minutes</string>
     <string name="settings_manager_error">Error loading Traxx</string>
     <string name="settings_manager_stopwatch_name_hint">Name of new Traxx</string>
     <string name="settings_manager_action_add_stopwatch">Add</string>

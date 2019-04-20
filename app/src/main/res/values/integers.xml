@@ -2,12 +2,13 @@
 <resources>
     <integer name="stopwatch_grid_num_columns">2</integer>
 
-    <integer name="key_master_stopwatch">0</integer>
-    <integer name="key_stopwatch_list">0</integer>
+    <integer name="parcel_key_master_stopwatch">0</integer>
+    <integer name="parcel_key_stopwatch_list">0</integer>
+    <integer name="parcel_key_event_handler">0</integer>
 
     <integer name="extra_graph_title">0</integer>
-    <integer name="extra_time_at_work_hours">0</integer>
-    <integer name="extra_get_up_frequency_minutes">0</integer>
+    <integer name="extra_time_to_leave_hours">0</integer>
+    <integer name="extra_time_to_get_up_minutes">0</integer>
     <integer name="extra_stopwatch_names">0</integer>
     <integer name="extra_stopwatch_ids">0</integer>
     <integer name="extra_stopwatches_to_add">0</integer>

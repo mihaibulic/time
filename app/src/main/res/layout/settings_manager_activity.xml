@@ -6,14 +6,25 @@
     android:padding="@dimen/large_padding" >
 
     <TextView
-        android:id="@+id/time_at_work_label"
+        android:id="@+id/time_to_leave_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
     <androidx.appcompat.widget.AppCompatSeekBar
-        android:id="@+id/time_at_work_seek_bar"
+        android:id="@+id/time_to_leave_seek_bar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/time_at_work_seek_bar_height"
+        android:layout_height="@dimen/seek_bar_height"
+        android:padding="@dimen/large_padding" />
+
+    <TextView
+        android:id="@+id/time_to_get_up_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/time_to_get_up_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/seek_bar_height"
         android:padding="@dimen/large_padding" />
 
     <LinearLayout
