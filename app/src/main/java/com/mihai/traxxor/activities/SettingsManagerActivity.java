@@ -224,7 +224,7 @@ public class SettingsManagerActivity extends AppCompatActivity implements OnClic
      * min is 6 hours, max is 12 hours.
      */
     private static int convertTimeToLeaveHoursToSeekbarProgress(@FloatRange(from = TIME_TO_LEAVE_MIN_HOURS, to = TIME_TO_LEAVE_MAX_HOURS) float hours) {
-        return (int) (100 * (hours - TIME_TO_LEAVE_MIN_HOURS) / (TIME_TO_LEAVE_MAX_HOURS - TIME_TO_LEAVE_MIN_HOURS));
+        return Math.round(100 * (hours - TIME_TO_LEAVE_MIN_HOURS) / (TIME_TO_LEAVE_MAX_HOURS - TIME_TO_LEAVE_MIN_HOURS));
     }
 
     /**
@@ -251,11 +251,11 @@ public class SettingsManagerActivity extends AppCompatActivity implements OnClic
     private static final int TIME_TO_GET_UP_MAX_MINUTES = 150;
 
     private static int convertTimeToGetUpMinutesToSeekbarProgress(@IntRange(from = TIME_TO_GET_UP_MIN_MINUTES, to = TIME_TO_GET_UP_MAX_MINUTES) int minutes) {
-        return 100 * (minutes - TIME_TO_GET_UP_MIN_MINUTES) / (TIME_TO_GET_UP_MAX_MINUTES - TIME_TO_GET_UP_MIN_MINUTES);
+        return (int) Math.round((100.0 * (minutes - TIME_TO_GET_UP_MIN_MINUTES)) / (TIME_TO_GET_UP_MAX_MINUTES - TIME_TO_GET_UP_MIN_MINUTES));
     }
 
     private static int convertSeekbarProgressToTimeToGetUpMinutes(int seekBarProgress) {
-        return (int) (TIME_TO_GET_UP_MIN_MINUTES + (seekBarProgress / 100.0f) * (TIME_TO_GET_UP_MAX_MINUTES - TIME_TO_GET_UP_MIN_MINUTES));
+        return (int) (TIME_TO_GET_UP_MIN_MINUTES + (seekBarProgress / 100.0) * (TIME_TO_GET_UP_MAX_MINUTES - TIME_TO_GET_UP_MIN_MINUTES));
     }
 
     private int getTimeToGetUpMinutes() {

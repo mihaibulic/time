@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     private void updateTimeToGetUp() {
         // Calculate text
-        long timeRemaining = mEventHandler.getTimeToGetUpRemainingMs();
+        long timeRemaining = mEventHandler.getTimeToGetUpRemainingMs(mMasterWatch.getCurrentDuration());
 
         // Update text
         TextView timeToGetUpRemaining = findViewById(R.id.time_to_get_up_remaining);

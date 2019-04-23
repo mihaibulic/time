@@ -43,7 +43,7 @@ public class StopwatchDataProvider extends SQLiteOpenHelper {
         return (CREATE + tableName
             + OPEN
                     + StopwatchesTable._ID + INTEGER + PRIMARY_KEY + COMMA
-                    + StopwatchesTable.COL_NAME + TEXT + NOT_NULL + COMMA
+                    + StopwatchesTable.COL_NAME + TEXT + NOT_NULL
             + CLOSE + END);
     }
 

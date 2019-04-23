@@ -1764,6 +1764,10 @@
         "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/material-1.0.0.aar/0489a7ef442662e7a4df2ac327f513a1/res/layout/design_navigation_item_header.xml"
     },
     {
+        "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable_ic_get_up_black_24dp.xml.flat",
+        "source": "/Users/mihai/dev/traxxor/app/src/main/res/drawable/ic_get_up_black_24dp.xml"
+    },
+    {
         "merged": "/Users/mihai/dev/traxxor/app/build/intermediates/res/merged/debug/drawable-hdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
         "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/734ed9ab44df9df6d12126087e02eff2/res/drawable-hdpi-v4/abc_popup_background_mtrl_mult.9.png"
     },

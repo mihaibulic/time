@@ -82,12 +82,12 @@ public class EventHandler implements Parcelable {
         return timeToLeaveMs - totalDurationMs;
     }
 
-    public long getTimeToGetUpRemainingMs() {
+    public long getTimeToGetUpRemainingMs(long totalDurationMs) {
         long lastGetUpEventMs = pastGetUpEvents.isEmpty()
                 ? 0
                 : pastGetUpEvents.get(pastGetUpEvents.size() - 1);
 
-        return lastGetUpEventMs + timeToGetUpMs;
+        return timeToGetUpMs - (totalDurationMs - lastGetUpEventMs);
     }
 
     public void recordGetUpEvent(long totalDurationMs) {
@@ -116,7 +116,7 @@ public class EventHandler implements Parcelable {
     private void handleTimeToGetUpEventIfNeeded(long totalDurationMs) {
         // TODO(P3) can add: getTimeToLeaveRemainingMs(totalDurationMs) < TimeUnit.MINUTES.toMillis(30)
         // to not have to get up within last 30 min?  Only add this if I'm good about leaving on time.
-        if (getTimeToGetUpRemainingMs() > totalDurationMs || timeToGetUpEventFired) {
+        if (getTimeToGetUpRemainingMs(totalDurationMs) > 0 || timeToGetUpEventFired) {
             return;
         }
 
@@ -127,7 +127,7 @@ public class EventHandler implements Parcelable {
 
         // TODO enable this
         Log.d("bulic", "GET UP!");
-//        makeIftttMakerRequest("traxxor_getUp");
+        makeIftttMakerRequest("traxxor_getUp");
     }
 
     private void makeIftttMakerRequest(String eventName) {
