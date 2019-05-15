@@ -18,3 +18,13 @@ local.properties
 .classpath
 .project
 .settings
+
+# Other stuff
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+.externalNativeBuild
