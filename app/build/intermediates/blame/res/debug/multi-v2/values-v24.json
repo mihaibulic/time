@@ -4,7 +4,7 @@
             "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v24/values-v24.xml",
             "map": [
                 {
-                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/734ed9ab44df9df6d12126087e02eff2/res/values-v24/values-v24.xml",
+                    "source": "/Users/mihai/.gradle/caches/transforms-2/files-2.1/389ef19eebf5efad3c6065965aa40442/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/media-1.0.0.aar/89f313b71244e9e0f171c4806b572a14/res/values-v24/values-v24.xml",
+                    "source": "/Users/mihai/.gradle/caches/transforms-2/files-2.1/68d9399b7bc48cbd73c6ee878e7fcb3b/res/values-v24/values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",

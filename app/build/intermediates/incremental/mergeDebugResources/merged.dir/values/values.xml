@@ -272,7 +272,7 @@
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
     <color name="timeToX_negative">@color/red</color>
-    <color name="timeToX_positive">@color/gray</color>
+    <color name="timeToX_positive">@color/colorPrimaryDark</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
     <color name="transparent">#00000000</color>
@@ -352,7 +352,7 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <dimen name="action_bar_button_horz_padding">12dp</dimen>
+    <dimen name="action_bar_button_horz_padding">24dp</dimen>
     <dimen name="action_bar_height_land">50dp</dimen>
     <dimen name="action_bar_height_port">70dp</dimen>
     <dimen name="aux_text">18sp</dimen>
@@ -427,6 +427,7 @@
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
     <dimen name="large_padding">8dp</dimen>
     <dimen name="master_text">14sp</dimen>
+    <dimen name="medium_padding">4dp</dimen>
     <dimen name="mtrl_bottomappbar_fabOffsetEndMode">60dp</dimen>
     <dimen name="mtrl_bottomappbar_fab_cradle_margin">5dp</dimen>
     <dimen name="mtrl_bottomappbar_fab_cradle_rounded_corner_radius">8dp</dimen>
@@ -505,6 +506,7 @@
     <dimen name="tooltip_vertical_padding">6.5dp</dimen>
     <dimen name="tooltip_y_offset_non_touch">0dp</dimen>
     <dimen name="tooltip_y_offset_touch">16dp</dimen>
+    <dimen name="xlarge_padding">12dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <drawable name="notification_template_icon_low_bg">#0cffffff</drawable>
     <item name="action_bar_activity_content" type="id"/>

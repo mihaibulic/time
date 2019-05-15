@@ -1,5 +1,8 @@
 package com.mihai.traxxor.activities;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     private StopwatchAdapter mAdapter;
     private Stopwatch mMasterWatch;
 
+    private ObjectAnimator mActionRequiredAnimator;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +60,15 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
         updateMaster();
         mAdapter.notifyDataSetChanged();
+
+        mActionRequiredAnimator = ObjectAnimator.ofObject(findViewById(R.id.content),
+                "backgroundColor",
+                new ArgbEvaluator(),
+                getResources().getColor(R.color.master_stopwatch_on),
+                getResources().getColor(R.color.master_stopwatch_off));
+        mActionRequiredAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        mActionRequiredAnimator.setRepeatMode(ValueAnimator.RESTART);
+        mActionRequiredAnimator.setDuration(1000);
     }
 
     @Override
@@ -123,7 +137,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.get_up:
-                mEventHandler.recordGetUpEvent(mMasterWatch.getCurrentDuration());
+                mEventHandler.onGetUpEvent(mMasterWatch.getCurrentDuration());
+                onActionRequiredAcknowledged();
                 break;
             case R.id.manage:
                 startActivityForResult(getManagerIntent(), SETTINGS_MANAGER_REQUEST_CODE);
@@ -167,11 +182,13 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
 
     @Override
     public void onTimeToLeaveEvent() {
+        startActionRequiredAnimation();
         Toast.makeText(this, R.string.on_time_to_leave_event_toast, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onTimeToGetUpEvent() {
+        startActionRequiredAnimation();
         Toast.makeText(this, R.string.on_time_to_get_up_event_toast, Toast.LENGTH_LONG).show();
     }
 
@@ -199,6 +216,7 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             updateMaster();
             mAdapter.stopAllStopwatches();
             mAdapter.stopRefresh();
+            onActionRequiredAcknowledged();
         } else {
             startMaster();
         }
@@ -221,9 +239,40 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
             mEventHandler.reset();
             mAdapter.resetAllStopwatches();
 
+            onActionRequiredAcknowledged();
+
             updateMaster();
             updateTimeToLeave();
+            updateTimeToGetUp();
         }
+    }
+
+    private void updateTimeToGetUp() {
+        // Calculate text
+        long timeRemaining = mEventHandler.getTimeToGetUpRemainingMs(mMasterWatch.getCurrentDuration());
+
+        // Update text
+        TextView timeToGetUpRemaining = findViewById(R.id.time_to_get_up_remaining);
+        final int textColor = getResources().getColor(timeRemaining >= 0 ? R.color.timeToX_positive : R.color.timeToX_negative);
+        timeToGetUpRemaining.setText(getString(R.string.action_bar_time_to_get_up_remaining,
+                Util.calculateTimeString(timeRemaining)));
+        timeToGetUpRemaining.setTextColor(textColor);
+    }
+
+    private void startActionRequiredAnimation() {
+        if (mActionRequiredAnimator.isPaused()) {
+            mActionRequiredAnimator.resume();
+        } else {
+            mActionRequiredAnimator.start();
+        }
+    }
+
+    private void onActionRequiredAcknowledged() {
+        if (mActionRequiredAnimator.isRunning()) {
+            mActionRequiredAnimator.pause();
+            updateMaster(); // Reset the background color
+        }
+        mEventHandler.onActionRequiredAcknowledged();
     }
 
     private void initActionBar() {
@@ -302,18 +351,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         timeAtWorRemaining.setText(getString(R.string.action_bar_time_to_leave_remaining,
                 Util.calculateTimeString(timeRemaining)));
         timeAtWorRemaining.setTextColor(textColor);
-    }
-
-    private void updateTimeToGetUp() {
-        // Calculate text
-        long timeRemaining = mEventHandler.getTimeToGetUpRemainingMs(mMasterWatch.getCurrentDuration());
-
-        // Update text
-        TextView timeToGetUpRemaining = findViewById(R.id.time_to_get_up_remaining);
-        final int textColor = getResources().getColor(timeRemaining >= 0 ? R.color.timeToX_positive : R.color.timeToX_negative);
-        timeToGetUpRemaining.setText(getString(R.string.action_bar_time_to_get_up_remaining,
-                Util.calculateTimeString(timeRemaining)));
-        timeToGetUpRemaining.setTextColor(textColor);
     }
 
     private Intent getManagerIntent() {

@@ -6,7 +6,7 @@
     <color name="stopwatch_off">@color/red</color>
     <color name="stopwatch_on">@color/green</color>
 
-    <color name="timeToX_positive">@color/gray</color>
+    <color name="timeToX_positive">@color/colorPrimaryDark</color>
     <color name="timeToX_negative">@color/red</color>
 
     <color name="black">#FF222222</color>

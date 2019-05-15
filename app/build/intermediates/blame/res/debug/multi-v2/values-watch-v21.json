@@ -4,7 +4,7 @@
             "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/734ed9ab44df9df6d12126087e02eff2/res/values-watch-v21/values-watch-v21.xml",
+                    "source": "/Users/mihai/.gradle/caches/transforms-2/files-2.1/389ef19eebf5efad3c6065965aa40442/res/values-watch-v21/values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

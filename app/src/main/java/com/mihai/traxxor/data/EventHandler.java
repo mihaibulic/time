@@ -1,9 +1,13 @@
 package com.mihai.traxxor.data;
 
 import android.content.Context;
+import android.os.Handler;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -15,38 +19,42 @@ import com.android.volley.toolbox.Volley;
 import java.util.ArrayList;
 import java.util.List;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 public class EventHandler implements Parcelable {
 
+    private static final long IFTTT_REQUEST_DELAY_MS = 1000 * 60 * 5; // 5 minutes
     private long timeToLeaveMs;
     private long timeToGetUpMs;
 
     private boolean timeToLeaveEventFired = false;
     private boolean timeToGetUpEventFired = false;
-    @NonNull private final List<Long> pastGetUpEvents = new ArrayList<>();
+    @NonNull
+    private final List<Long> pastGetUpEvents = new ArrayList<>();
 
-    @NonNull private RequestQueue volleyQueue;
-    @Nullable private Listener listener;
+    @NonNull
+    private RequestQueue volleyQueue;
+
+    @Nullable
+    private Listener listener;
+
+    @NonNull
+    private final Handler delayedTextMessageHandler = new Handler();
 
     public interface Listener {
         void onTimeToLeaveEvent();
-
         void onTimeToGetUpEvent();
     }
 
     /**
      * For recreating the {@link EventHandler} via a Parcel
      */
-    EventHandler(
+    private EventHandler(
             long timeToLeaveMs,
             long timeToGetUpMs,
             boolean timeToLeaveEventFired,
             boolean timeToGetUpEventFired,
             @NonNull List<Long> pastGetUpEvents) {
-        this.timeToLeaveMs = timeToLeaveMs;
-        this.timeToGetUpMs = timeToGetUpMs;
+        this.timeToLeaveMs = 15000;//timeToLeaveMs;
+        this.timeToGetUpMs = 10000;//timeToGetUpMs;
         this.timeToLeaveEventFired = timeToLeaveEventFired;
         this.timeToGetUpEventFired = timeToGetUpEventFired;
         this.pastGetUpEvents.addAll(pastGetUpEvents);
@@ -58,19 +66,22 @@ public class EventHandler implements Parcelable {
         this.listener = listener;
         setTimeToLeave(timeToLeaveHours);
         setTimeToGetUp(timeToGetUpMinutes);
+
+        this.timeToLeaveMs = 15000;//timeToLeaveMs;
+        this.timeToGetUpMs = 10000;//timeToGetUpMs;
     }
 
-    public void initOnParcelRestore(@NonNull Context context, @Nullable Listener listener) {
+    void initOnParcelRestore(@NonNull Context context, @Nullable Listener listener) {
         volleyQueue = Volley.newRequestQueue(context);
         this.listener = listener;
     }
 
     public void setTimeToLeave(float timeToLeaveHours) {
-        timeToLeaveMs = (long) (timeToLeaveHours * 60 * 60 * 1000);
+//        timeToLeaveMs = (long) (timeToLeaveHours * 60 * 60 * 1000);
     }
 
     public void setTimeToGetUp(int getUpFrequencyMinutes) {
-        timeToGetUpMs = getUpFrequencyMinutes * 60 * 1000;
+//        timeToGetUpMs = getUpFrequencyMinutes * 60 * 1000;
     }
 
     public void reset() {
@@ -84,13 +95,19 @@ public class EventHandler implements Parcelable {
 
     public long getTimeToGetUpRemainingMs(long totalDurationMs) {
         long lastGetUpEventMs = pastGetUpEvents.isEmpty()
-                ? 0
-                : pastGetUpEvents.get(pastGetUpEvents.size() - 1);
+                                ? 0
+                                : pastGetUpEvents.get(pastGetUpEvents.size() - 1);
 
         return timeToGetUpMs - (totalDurationMs - lastGetUpEventMs);
     }
 
-    public void recordGetUpEvent(long totalDurationMs) {
+    /** Call when user is likely leaving for the day. */
+    public void onActionRequiredAcknowledged() {
+        // User has acknowledged they need to act, so there is no need to send a text messages.
+        delayedTextMessageHandler.removeCallbacksAndMessages(null);
+    }
+
+    public void onGetUpEvent(long totalDurationMs) {
         pastGetUpEvents.add(totalDurationMs);
         timeToGetUpEventFired = false;
     }
@@ -110,7 +127,7 @@ public class EventHandler implements Parcelable {
             listener.onTimeToLeaveEvent();
         }
 
-        makeIftttMakerRequest("traxxor_leaveWork");
+        initDelayedTextMessageRequest("traxxor_leaveWork");
     }
 
     private void handleTimeToGetUpEventIfNeeded(long totalDurationMs) {
@@ -125,32 +142,40 @@ public class EventHandler implements Parcelable {
             listener.onTimeToGetUpEvent();
         }
 
-        // TODO enable this
-        Log.d("bulic", "GET UP!");
-        makeIftttMakerRequest("traxxor_getUp");
+        initDelayedTextMessageRequest("traxxor_getUp");
+
     }
 
-    private void makeIftttMakerRequest(String eventName) {
-        String url = String.format("https://maker.ifttt.com/trigger/%s/with/key/dOevSBBSwD8hjSRLsHDd2e", eventName);
+    /** Make a delayed request to IFTTT to send a text message.  This is delayed to give user a
+     * chance to take care of the event before sending a text (limited to only 100/month). */
+    private void initDelayedTextMessageRequest(final String eventName) {
+        delayedTextMessageHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String url = String.format(
+                        "https://maker.ifttt.com/trigger/%s/with/key/dOevSBBSwD8hjSRLsHDd2e",
+                        eventName);
 
-        // Request a string response from the provided URL.
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        // no-op on success
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.e("Traxxor", "Error making ifttt request", error);
-                    }
-                }
-        );
+                // Request a string response from the provided URL.
+                StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // no-op on success
+                            }
+                        },
+                        new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Log.e("Traxxor", "Error making ifttt request", error);
+                            }
+                        }
+                );
 
-        // Add the request to the RequestQueue.
-        volleyQueue.add(stringRequest);
+                // Add the request to the RequestQueue.
+                volleyQueue.add(stringRequest);
+            }
+        }, IFTTT_REQUEST_DELAY_MS);
     }
 
 
@@ -170,26 +195,27 @@ public class EventHandler implements Parcelable {
         out.writeList(pastGetUpEvents);
     }
 
-    public static final Parcelable.Creator<EventHandler> CREATOR = new Parcelable.Creator<EventHandler>() {
-        public EventHandler createFromParcel(Parcel in) {
-            long timeToLeaveMs = in.readLong();
-            long timeToGetUpMs = in.readLong();
-            boolean timeToLeaveEventFired = in.readInt() == 1;
-            boolean timeToGetUpEventFired = in.readInt() == 1;
-            ArrayList<Long> pastGetUpEvents = new ArrayList<>();
-            in.readList(pastGetUpEvents, Long.class.getClassLoader());
+    public static final Parcelable.Creator<EventHandler> CREATOR =
+            new Parcelable.Creator<EventHandler>() {
+                public EventHandler createFromParcel(Parcel in) {
+                    long timeToLeaveMs = in.readLong();
+                    long timeToGetUpMs = in.readLong();
+                    boolean timeToLeaveEventFired = in.readInt() == 1;
+                    boolean timeToGetUpEventFired = in.readInt() == 1;
+                    ArrayList<Long> pastGetUpEvents = new ArrayList<>();
+                    in.readList(pastGetUpEvents, Long.class.getClassLoader());
 
-            return new EventHandler(
-                    timeToLeaveMs,
-                    timeToGetUpMs,
-                    timeToLeaveEventFired,
-                    timeToGetUpEventFired,
-                    pastGetUpEvents
-            );
-        }
+                    return new EventHandler(
+                            timeToLeaveMs,
+                            timeToGetUpMs,
+                            timeToLeaveEventFired,
+                            timeToGetUpEventFired,
+                            pastGetUpEvents
+                    );
+                }
 
-        public EventHandler[] newArray(int size) {
-            return new EventHandler[size];
-        }
-    };
+                public EventHandler[] newArray(int size) {
+                    return new EventHandler[size];
+                }
+            };
 }

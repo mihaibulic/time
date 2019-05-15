@@ -56,7 +56,6 @@ public class StatCalculator {
         ArrayList<StopwatchAction> slaveActions = slave.getStopwatchActions();
 
         if (masterActions == null || slaveActions == null || masterActions.size() == 0 || slaveActions.size() == 0) {
-            android.util.Log.v("bulic", "da fuq?");
             return null;
         }
 
@@ -75,7 +74,6 @@ public class StatCalculator {
         } else if (stepSize < 0 && steps > 0) {
             stepSize = (last - first) / steps;
         } else {
-            android.util.Log.v("bulic", "da fuq2?");
             return null;
         }
 
@@ -127,7 +125,6 @@ public class StatCalculator {
             }
 
             if (!isCumulative) {
-                android.util.Log.v("bulic", "ld " + lastDuration + " | d " + duration);
                 long original = duration;
                 duration -= lastDuration;
                 lastDuration = original;

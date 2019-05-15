@@ -4,6 +4,16 @@
             "outputFile": "/Users/mihai/dev/traxxor/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml",
             "map": [
                 {
+                    "source": "/Users/mihai/.gradle/caches/transforms-2/files-2.1/389ef19eebf5efad3c6065965aa40442/res/values-port/values-port.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                },
+                {
                     "source": "/Users/mihai/dev/traxxor/app/src/main/res/values-port/dimens.xml",
                     "from": {
                         "startLines": "1",
@@ -18,16 +28,6 @@
                         "startOffsets": "111",
                         "endColumns": "48",
                         "endOffsets": "155"
-                    }
-                },
-                {
-                    "source": "/Users/mihai/.gradle/caches/transforms-1/files-1.1/appcompat-1.0.2.aar/734ed9ab44df9df6d12126087e02eff2/res/values-port/values-port.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
                     }
                 },
                 {

@@ -1,4 +1,4 @@
-#Thu Apr 18 23:33:56 PDT 2019
+#Wed May 15 00:07:05 PDT 2019
 base.0=/Users/mihai/dev/traxxor/app/build/intermediates/transforms/dexMerger/debug/1
 path.0=classes.dex
 renamed.0=classes.dex
