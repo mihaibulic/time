@@ -53,8 +53,8 @@ public class EventHandler implements Parcelable {
             boolean timeToLeaveEventFired,
             boolean timeToGetUpEventFired,
             @NonNull List<Long> pastGetUpEvents) {
-        this.timeToLeaveMs = 15000;//timeToLeaveMs;
-        this.timeToGetUpMs = 10000;//timeToGetUpMs;
+        this.timeToLeaveMs = timeToLeaveMs;
+        this.timeToGetUpMs = timeToGetUpMs;
         this.timeToLeaveEventFired = timeToLeaveEventFired;
         this.timeToGetUpEventFired = timeToGetUpEventFired;
         this.pastGetUpEvents.addAll(pastGetUpEvents);
@@ -66,9 +66,6 @@ public class EventHandler implements Parcelable {
         this.listener = listener;
         setTimeToLeave(timeToLeaveHours);
         setTimeToGetUp(timeToGetUpMinutes);
-
-        this.timeToLeaveMs = 15000;//timeToLeaveMs;
-        this.timeToGetUpMs = 10000;//timeToGetUpMs;
     }
 
     void initOnParcelRestore(@NonNull Context context, @Nullable Listener listener) {
@@ -77,11 +74,11 @@ public class EventHandler implements Parcelable {
     }
 
     public void setTimeToLeave(float timeToLeaveHours) {
-//        timeToLeaveMs = (long) (timeToLeaveHours * 60 * 60 * 1000);
+        timeToLeaveMs = (long) (timeToLeaveHours * 60 * 60 * 1000);
     }
 
     public void setTimeToGetUp(int getUpFrequencyMinutes) {
-//        timeToGetUpMs = getUpFrequencyMinutes * 60 * 1000;
+        timeToGetUpMs = getUpFrequencyMinutes * 60 * 1000;
     }
 
     public void reset() {
