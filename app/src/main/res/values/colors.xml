@@ -9,6 +9,9 @@
     <color name="timeToX_positive">@color/colorPrimaryDark</color>
     <color name="timeToX_negative">@color/red</color>
 
+    <color name="action_required_animation_1">#000000</color>
+    <color name="action_required_animation_2">#FFFFFF</color>
+
     <color name="black">#FF222222</color>
     <color name="white">#FFEFEFEF</color>
     <color name="gray">#FFBCBCBC</color>

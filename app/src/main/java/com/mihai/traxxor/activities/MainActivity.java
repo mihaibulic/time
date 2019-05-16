@@ -64,8 +64,8 @@ public class MainActivity extends AppCompatActivity implements OnClickListener, 
         mActionRequiredAnimator = ObjectAnimator.ofObject(findViewById(R.id.content),
                 "backgroundColor",
                 new ArgbEvaluator(),
-                getResources().getColor(R.color.master_stopwatch_on),
-                getResources().getColor(R.color.master_stopwatch_off));
+                getResources().getColor(R.color.action_required_animation_1),
+                getResources().getColor(R.color.action_required_animation_2));
         mActionRequiredAnimator.setRepeatCount(ValueAnimator.INFINITE);
         mActionRequiredAnimator.setRepeatMode(ValueAnimator.RESTART);
         mActionRequiredAnimator.setDuration(1000);
